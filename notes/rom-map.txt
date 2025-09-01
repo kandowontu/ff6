@@ -47,6 +47,7 @@ C2A800-C2FAA3   Battle Graphics Program (continued)
 C2FAA4-C2FC6C   Unused Space (457 bytes)
 C2FC6D-C2FE6C   Sine/Cosine Table (16-bit, signed)
 C2FE6D-C2FF6C   Sine/Cosine Table (8-bit, signed)
+C2FF6D-C2FFFF   Decompression Routine
 C30000-C3C405   Menu Program
 C3C406-C3F090   Ending Cinematic Program
 C3F091-C3FFFF   Unused Space (3951 bytes)
@@ -312,3 +313,4 @@ EFED26-EFFAC7   Falcon Graphics (compressed)
 EFFAC8-EFFBC7   Palettes for Ending Airship Scene
 EFFBC8-EFFEEF   Unused Space (808 bytes)
 EFFEF0-EFFFFF   Sine/Cosine Table (unsigned)
+
