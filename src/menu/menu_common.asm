@@ -2592,7 +2592,8 @@ TfrBGTiles:
 ; [ play cursor sound effect (move) ]
 
 PlayMoveSfx:
-@0ea3:  lda     $ae         ; return if sound effect is already being played this frame
+@0ea3:  SetRumble $55,2
+		lda     $ae         ; return if sound effect is already being played this frame
         cmp     #$21
         beq     _0eb1
 ; fall through
@@ -2602,7 +2603,8 @@ PlayMoveSfx:
 ; [ play cursor sound effect (cancel) ]
 
 PlayCancelSfx:
-@0ea9:  lda     #$21
+@0ea9:  SetRumble $55,2
+		lda     #$21
         sta     $ae
         sta     f:hAPUIO0
 _0eb1:  rts
@@ -2612,7 +2614,8 @@ _0eb1:  rts
 ; [ play cursor sound effect (select) ]
 
 PlaySelectSfx:
-@0eb2:  lda     #$20
+@0eb2:  SetRumble $55,2
+		lda     #$20
         sta     f:hAPUIO0
         rts
 
@@ -2621,7 +2624,8 @@ PlaySelectSfx:
 ; [ play success sound effect ]
 
 PlaySuccessSfx:
-@0eb9:  lda     #$23
+@0eb9:  SetRumble $55,2
+		lda     #$23
         sta     f:hAPUIO0
         rts
 
@@ -2630,7 +2634,8 @@ PlaySuccessSfx:
 ; [ play invalid sound effect ]
 
 PlayInvalidSfx:
-@0ec0:  lda     #$22
+@0ec0:  SetRumble $55,2
+		lda     #$22
         sta     f:hAPUIO0
         rts
 
@@ -2639,7 +2644,8 @@ PlayInvalidSfx:
 ; [ play delete/erase sound effect ]
 
 PlayEraseSfx:
-@0ec7:  lda     #$24
+@0ec7:  SetRumble $55,2
+		lda     #$24
         sta     f:hAPUIO0
         rts
 
@@ -2650,6 +2656,7 @@ PlayEraseSfx:
 PlayShopSfx:
 @0ece:  lda     #$bf
 _0ed0:  sta     f:$001301
+		SetRumble $77,3
         lda     #$18
         sta     f:$001300
         lda     #$80
@@ -2662,7 +2669,8 @@ _0ed0:  sta     f:$001301
 ; [ play cure/item sound effect ]
 
 PlayCureSfx:
-@0ee5:  lda     #$c5
+@0ee5:  SetRumble $77,3
+		lda     #$c5
         bra     _0ed0
 
 ; ------------------------------------------------------------------------------

@@ -100,10 +100,11 @@ _c3a483:
         sta     z08
         ldy     z06
         sty     z0c
-        lda     hSTDCNTRL1L
-        ora     hSTDCNTRL2L
-        sta     z04
-        shorta
+		lda     hSTDCNTRL1L
+		ora     hSTDCNTRL2L
+		sta     z04
+		shorta
+        jsl		RumbleRead
         rts
 
 ; ------------------------------------------------------------------------------
@@ -280,3 +281,74 @@ SetDefaultBtnMap:
         rts
 
 ; ------------------------------------------------------------------------------
+
+.proc RumbleRead
+RumbleRead:
+    LDA $02FF
+	BEQ rumbleOff
+    DEC $02FF
+    BRA continue
+
+rumbleOff:
+    STZ $02FE		;21
+
+continue:
+    ; HACK: apparently this is needed to work on hardware?
+    LDA #$01 
+	STA $4016
+    NOP
+    STZ $4016
+    NOP
+    ; Read 16 Controller Bits
+    LDA #$0F
+
+readJoy2:
+    ; Controller I
+    BIT $4016
+    DEC 
+	BPL readJoy2
+
+    ; Write 01110010 to the Controller Port
+    LDA #$40
+    STZ $4201
+	BIT $4016  ; 0
+    STA $4201
+	BIT $4016 ; 1
+    BIT $4016          ; 1 (just strobing works: the IO port already has 1)
+    BIT $4016          ; 1
+    STZ $4201
+	BIT $4016  ; 0
+    BIT $4016          ; 0
+    STA $4201
+	BIT $4016 ; 1
+    STZ $4201
+	BIT $4016  ; 0
+
+    ; Now we write the rumble intensity: rrrrllll (right and left motors)
+    LDA $02FE
+	LSR ; -7654321, C <- 0
+    STA $4201
+	BIT $4016     ; bit7
+    ROL                    ; 76543210
+    STA $4201
+	BIT $4016     ; bit6
+    ASL                    ; 6543210-
+    STA $4201
+	BIT $4016     ; bit5
+    ASL                    ; 543210--
+    STA $4201
+	BIT $4016     ; bit4
+    ASL                    ; 43210---
+    STA $4201
+	BIT $4016     ; bit3
+    ASL                    ; 3210----
+    STA $4201
+	BIT $4016     ; bit2
+    ASL                    ; 210-----
+    STA $4201
+	BIT $4016     ; bit1
+    ASL                    ; 10------
+    STA $4201
+	BIT $4016     ; bit0
+    RTL			;;141 bytes
+.endproc

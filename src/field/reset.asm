@@ -49,6 +49,8 @@
         stz     $1159
         lda     #$40                    ; disable auto fade in when loading map
         sta     $11fa
+		stz $F7FE
+		stz $F7FF
         jsr     InitNewGame
 
 ::FieldMain:

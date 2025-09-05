@@ -133,6 +133,21 @@ PSW_C = %00000001
 
 ; ------------------------------------------------------------------------------
 
+.mac SetRumble strength, time
+        .if .asize = 8
+                lda #strength
+				sta $02FE
+				lda #time
+				sta $02FF
+        .else
+                shorta
+				lda #strength
+				sta $02FE
+				lda #time
+				sta $02FF
+				longa
+        .endif	
+.endmac
 ; [ repeated operation ]
 
 .mac op_n op, n

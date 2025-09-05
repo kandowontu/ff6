@@ -52,6 +52,8 @@ InitCutscene:
         ldx     #$0000      ; set direct page
         phx
         pld
+		stz $F7FE
+		stz $F7FF
         ldx     #0
         stx     $00
         jsr     InitInterrupts
