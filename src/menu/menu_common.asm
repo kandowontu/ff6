@@ -2592,7 +2592,7 @@ TfrBGTiles:
 ; [ play cursor sound effect (move) ]
 
 PlayMoveSfx:
-@0ea3:  SetRumble $55,2
+@0ea3:  SetRumble $33,2
 		lda     $ae         ; return if sound effect is already being played this frame
         cmp     #$21
         beq     _0eb1
@@ -2603,7 +2603,7 @@ PlayMoveSfx:
 ; [ play cursor sound effect (cancel) ]
 
 PlayCancelSfx:
-@0ea9:  SetRumble $55,2
+@0ea9:  SetRumble $33,2
 		lda     #$21
         sta     $ae
         sta     f:hAPUIO0
@@ -2614,7 +2614,7 @@ _0eb1:  rts
 ; [ play cursor sound effect (select) ]
 
 PlaySelectSfx:
-@0eb2:  SetRumble $55,2
+@0eb2:  SetRumble $33,2
 		lda     #$20
         sta     f:hAPUIO0
         rts
@@ -2624,7 +2624,7 @@ PlaySelectSfx:
 ; [ play success sound effect ]
 
 PlaySuccessSfx:
-@0eb9:  SetRumble $55,2
+@0eb9:  SetRumble $33,2
 		lda     #$23
         sta     f:hAPUIO0
         rts
@@ -2634,7 +2634,7 @@ PlaySuccessSfx:
 ; [ play invalid sound effect ]
 
 PlayInvalidSfx:
-@0ec0:  SetRumble $55,2
+@0ec0:  SetRumble $33,2
 		lda     #$22
         sta     f:hAPUIO0
         rts
@@ -2644,7 +2644,7 @@ PlayInvalidSfx:
 ; [ play delete/erase sound effect ]
 
 PlayEraseSfx:
-@0ec7:  SetRumble $55,2
+@0ec7:  SetRumble $33,2
 		lda     #$24
         sta     f:hAPUIO0
         rts

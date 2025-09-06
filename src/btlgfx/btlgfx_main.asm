@@ -70,6 +70,13 @@ inc_lang "text/status_name_%s.inc"
 .i16
 
 ; ------------------------------------------------------------------------------
+HapticFeedback:
+		lda #$33
+		sta $02FE
+		lda #$02
+		sta $02FF
+		rts
+
 
 ; [ battle graphics ]
 
@@ -3105,6 +3112,7 @@ sound_beep_set:
 @17bd:  lda     #$22
         sta     f:hAPUIO0
         stz     $95
+		jsr		HapticFeedback
         rts
 
 ; ------------------------------------------------------------------------------
@@ -3116,6 +3124,7 @@ sound_key_set:
 @17c6:  lda     #$21
         sta     f:hAPUIO0
         stz     $94
+		jsr		HapticFeedback
         rts
 
 ; ------------------------------------------------------------------------------
@@ -5202,36 +5211,11 @@ LoadSummonGfx:
 
 ; unused
 
-summon_obj_chr_set2_long:
-@24a5:  jsr     _c124a9
-        rtl
 
 ; ------------------------------------------------------------------------------
 
 ; unused
 
-_c124a9:
-summon_obj_chr_set2:
-@24a9:  jsr     LoadSummonGfx
-        clr_a
-@24ad:  tax
-        pha
-        longa
-        lda     #$0180
-        sta     $10
-        lda     f:_c2d471+2,x
-        tay
-        lda     f:_c2d471,x
-        tax
-        shorta0
-        lda     #$7e
-        jsr     WaitTfrVRAM
-        pla
-        clc
-        adc     #$04
-        cmp     #$28
-        bne     @24ad
-        rts
 
 ; ------------------------------------------------------------------------------
 
@@ -16850,6 +16834,7 @@ UpdateMenuState_38:
         bne     @6e6c
 
 ; right button
+		jsr		HapticFeedback
         lda     w7e7ace
         and     #$02
         bne     @6e82
@@ -16861,7 +16846,8 @@ UpdateMenuState_38:
         bra     @6e9a
 
 ; left button
-@6e6c:  lda     w7e7ace
+@6e6c:  jsr		HapticFeedback
+		lda     w7e7ace
         and     #$02
         beq     @6e82
         lda     w7e7ace
@@ -16874,8 +16860,10 @@ UpdateMenuState_38:
 ; check if player can move target cursor manually
 @6e82:  lda     $36
         and     #TARGET::MANUAL
-        beq     @6f05
+        bne     @cong2
+        jmp     @6f05
 
+@cong2:
 ; check L and R buttons
         lda     $04
         and     #$30
@@ -16883,6 +16871,7 @@ UpdateMenuState_38:
         cmp     #$30
         beq     @6ed3                   ; branch if running away
         inc     $94                     ; play sound effect
+		jsr		HapticFeedback
         lda     $36
         and     #TARGET::MULTI_TARGET
         beq     @6ed3                   ; branch if no multi-target
@@ -19327,6 +19316,7 @@ UpdateMenuState_08:
 ; A button
 @7f16:  lda     $04
         bpl     @7f6d       ; branch if A button is not pressed
+		jsr		HapticFeedback
         inc     $96         ; play cursor sound effect (select)
         lda     w7e7b92
         bne     @7f3a
@@ -19533,6 +19523,7 @@ GetCursorInput:
 ; up
         cmp     #>JOY_UP
         bne     @80f4
+		jsr		HapticFeedback
         lda     $37
         beq     @813e
         inc     $94
@@ -19542,6 +19533,7 @@ GetCursorInput:
 ; down
 @80f4:  cmp     #>JOY_DOWN
         bne     @8103
+		jsr		HapticFeedback
         lda     $37
         cmp     #$03
         beq     @8141
@@ -19552,6 +19544,7 @@ GetCursorInput:
 ; left
 @8103:  cmp     #>JOY_LEFT
         bne     @811d
+		jsr		HapticFeedback
         lda     $36
         bne     @8118
         lda     $39
@@ -19568,6 +19561,7 @@ GetCursorInput:
 ; right
 @811d:  cmp     #>JOY_RIGHT
         bne     @8144
+		jsr		HapticFeedback
         lda     $36
         cmp     $39
         bne     @8134

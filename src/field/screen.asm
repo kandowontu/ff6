@@ -1147,7 +1147,20 @@ SingleShake:
         bra     SetShakeOffsets
 
 ; restart the shake at a random amplitude
+; restart the shake at a random amplitude
 RandShake:
+		jsr		Rand
+		and		#$0F
+		sta		$02FD
+		jsr		Rand
+		and		#$F0
+		clc
+		adc		$02FD
+		sta		$02FE		;rumble intensity
+		lda		#$04
+		sta		$02FF		;rumble timer
+        ldx     $00
+		
         lda     $22
         tax
         jsr     Rand

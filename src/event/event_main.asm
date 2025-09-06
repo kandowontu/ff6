@@ -100325,79 +100325,79 @@ _cc985b:
         wait_30f
         play_song OPENING_THEME_2
         wait_30f
-        fade_in 2
-        obj_script CAMERA, ASYNC
-                move DOWN, 8
-                move DOWN, 8
-                move DOWN, 2
-                end
-        wait_15f 36
-        fade_out 8
-        wait_obj CAMERA
-        switch $062A=1
-        load_map 20, {38, 54}, DOWN, {ASYNC, NO_FADE_IN, STARTUP_EVENT}
-        hide_obj SLOT_1
-        sort_obj
-        lock_camera
-        obj_script CAMERA
-                speed SLOW
-                end
-        dlg $0007, {ASYNC, TEXT_ONLY}
-                ; 1000 years have passed… Iron,
-                ; gunpowder, and steam engines
-                ;   have been rediscovered, and
-                ; high technology reigns…
-        wait_90f
-        fade_in 2
-        obj_script CAMERA, ASYNC
-                move UP, 8
-                move UP, 8
-                move UP, 8
-                end
-        obj_script NPC_24, ASYNC
-                move DOWN, 2
-                move DOWN_RIGHT
-                move DOWN, 3
-                move DOWN_LEFT
-                move DOWN, 2
-                end
-        obj_script NPC_25, ASYNC
-                move DOWN, 8
-                end
-        wait_15f 49
-        fade_out 8
-        wait_obj CAMERA
-        load_map 244, {7, 27}, DOWN, {ASYNC, NO_FADE_IN}
-        hide_obj SLOT_1
-        sort_obj
-        lock_camera
-        obj_script CAMERA
-                speed SLOW
-                end
-        dlg $0008, {ASYNC, TEXT_ONLY}
-                ;     But there are some who
-                ;   would enslave the world by
-                ; reviving the dread destructive
-                ;     force known as “magic.”
-        wait_2s
-        fade_in 2
-        obj_script CAMERA, ASYNC
-                move UP, 8
-                move UP, 3
-                move UP_RIGHT, 8
-                move RIGHT, 3
-                move DOWN, 8
-                move DOWN, 6
-                end
-        wait_15f 27
-        obj_script NPC_1, ASYNC
-                move DOWN, 8
-                move DOWN, 8
-                move DOWN, 2
-                end
-        wait_15f 48
-        fade_out 8
-        wait_obj CAMERA
+;        fade_in 2
+;        obj_script CAMERA, ASYNC
+;                move DOWN, 8
+;                move DOWN, 8
+;                move DOWN, 2
+;                end
+;        wait_15f 36
+;        fade_out 8
+;        wait_obj CAMERA
+;        switch $062A=1
+;        load_map 20, {38, 54}, DOWN, {ASYNC, NO_FADE_IN, STARTUP_EVENT}
+;        hide_obj SLOT_1
+;        sort_obj
+;        lock_camera
+;        obj_script CAMERA
+;                speed SLOW
+;                end
+;        dlg $0007, {ASYNC, TEXT_ONLY}
+;                ; 1000 years have passed… Iron,
+;                ; gunpowder, and steam engines
+;                ;   have been rediscovered, and
+;                ; high technology reigns…
+;        wait_90f
+;        fade_in 2
+;        obj_script CAMERA, ASYNC
+;                move UP, 8
+;                move UP, 8
+;                move UP, 8
+;                end
+;        obj_script NPC_24, ASYNC
+;                move DOWN, 2
+;                move DOWN_RIGHT
+;                move DOWN, 3
+;                move DOWN_LEFT
+;                move DOWN, 2
+;                end
+;        obj_script NPC_25, ASYNC
+;                move DOWN, 8
+;                end
+;        wait_15f 49
+;        fade_out 8
+;        wait_obj CAMERA
+;        load_map 244, {7, 27}, DOWN, {ASYNC, NO_FADE_IN}
+;        hide_obj SLOT_1
+;        sort_obj
+;        lock_camera
+;        obj_script CAMERA
+;                speed SLOW
+;                end
+;        dlg $0008, {ASYNC, TEXT_ONLY}
+;                ;     But there are some who
+;                ;   would enslave the world by
+;                ; reviving the dread destructive
+;                ;     force known as “magic.”
+;        wait_2s
+;        fade_in 2
+;        obj_script CAMERA, ASYNC
+;                move UP, 8
+;                move UP, 3
+;                move UP_RIGHT, 8
+;                move RIGHT, 3
+;                move DOWN, 8
+;                move DOWN, 6
+;                end
+;        wait_15f 27
+;        obj_script NPC_1, ASYNC
+;                move DOWN, 8
+;                move DOWN, 8
+;                move DOWN, 2
+;                end
+;        wait_15f 48
+;        fade_out 8
+;        wait_obj CAMERA 
         switch $062A=0
         load_map 18, {11, 7}, UP, {ASYNC, NO_FADE_IN}
         hide_obj SLOT_1
@@ -100511,6 +100511,7 @@ _cc985b:
                 ; VICKS: There’s the town…
                 ; WEDGE: Hard to believe an Esper’s been found intact there, 1000 years after the War of the Magi…
         wait_1s
+		shake ALL, 2, 2
         obj_script VICKS, ASYNC
                 speed SLOW
                 move LEFT, 1
@@ -100530,6 +100531,7 @@ _cc985b:
                 dir RIGHT
                 end
         wait_30f
+				shake ALL, 0, 0
         obj_script VICKS
                 dir DOWN
                 wait 1
