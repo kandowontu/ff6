@@ -3136,6 +3136,7 @@ sound_key_a_set:
 @17cf:  lda     #$20
         sta     f:hAPUIO0
         stz     $96
+		jsr		HapticFeedback
         rts
 
 ; ------------------------------------------------------------------------------
@@ -3152,6 +3153,7 @@ sound_window_set:
         adc     #$28        ; sound effect $28 for player 1, $29 for player 2
         sta     f:hAPUIO0
         stz     $93
+		jsr		HapticFeedback
         rts
 
 ; ------------------------------------------------------------------------------
@@ -3176,6 +3178,7 @@ PlayAnimSfx:
         lda     #$18
         sta     w7ee9e8       ; spc command $18
         inc     w7ee9ec       ; enable animation sound effect
+		jsr		HapticFeedback
         rts
 
 ; ------------------------------------------------------------------------------
@@ -16906,6 +16909,7 @@ UpdateMenuState_38:
 @6ed3:  lda     $05
         and     #$0f
         beq     @6edb
+		jsr		HapticFeedback
         inc     $94                     ; play sound effect
 @6edb:  lda     $05
         cmp     #$08
@@ -16928,6 +16932,7 @@ UpdateMenuState_38:
 ; check A button
 @6f05:  lda     $04
         bpl     @6f4c
+		jsr		HapticFeedback
         inc     $96                     ; play sound effect
         lda     w7e7a84
         bpl     @6f25                   ; branch if not roulette
@@ -16966,7 +16971,7 @@ UpdateMenuState_38:
         lda     w7e62b1
         bne     @6f69
         inc     $96                     ; play sound effect
-
+		jsr		HapticFeedback
 ; close menu
 @6f57:  stz     w7e7b7d
         stz     w7e7b7e
@@ -33344,70 +33349,6 @@ set_mon_line_vec:
 
 ; unused ???
 
-@de66:  ldx     w7e7af6
-        lda     wAnimThread::w7e6a38,x
-        and     #$7f
-        sec
-        sbc     #$04
-        asl
-        tay
-        sty     w7e7af8
-        lda     wAnimThread::w7e74d9,x
-        sta     $24
-        lda     wAnimThread::w7e74d9+1,x
-        sta     $25
-        lda     wAnimThread::w7e74db,x
-        clc
-        adc     #$40
-        jsr     CalcSine16
-        ldx     w7e7af6
-        ldy     w7e7af8
-        longa
-        lda     $28
-        clc
-        adc     wAnimThread::w7e64e8,x
-        sta     w7e80c3,y
-        shorta0
-        lda     wAnimThread::w7e74db,x
-        jsr     CalcSine16
-        ldx     w7e7af6
-        lda     #$ff
-        sta     f:hWRDIVL
-        sta     f:hWRDIVH
-        lda     wAnimThread::w7e74dc+1,x
-        beq     @deb9
-        lda     #$ff
-        bra     @debc
-@deb9:  lda     wAnimThread::w7e74dc,x
-@debc:  sta     f:hWRDIVB
-        ldy     w7e7af8
-        lda     wAnimThread::w7e74d9,x
-        longa
-        sta     $22
-        lda     $28
-        pha
-        lda     f:hRDDIVL
-        sta     $24
-        jsr     Mult816
-        shorta0
-        ldx     #$0020
-        stx     $24
-        lda     $27
-        lsr
-        clc
-        adc     #$80
-        jsr     CalcSine16
-        ldy     w7e7af8
-        ldx     w7e7af6
-        longa
-        pla
-        clc
-        adc     $28
-        clc
-        adc     wAnimThread::w7e64ea,x
-        sta     w7e80cf,y
-        shorta0
-        rts
 
 ; ------------------------------------------------------------------------------
 

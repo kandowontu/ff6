@@ -350,5 +350,7 @@ readJoy2:
     ASL                    ; 10------
     STA $4201
 	BIT $4016     ; bit0
+	LDA #$FF
+    STA $4201
     RTL			;;141 bytes
 .endproc
