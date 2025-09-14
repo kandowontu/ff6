@@ -17234,6 +17234,7 @@ UpdateMenuState_3d:
 @703e:  lda     w7e6268
         bpl     @707c       ; branch if a button is not pressed
         inc     $96         ; play cursor sound effect (select)
+		jsr		HapticFeedback
         jsr     CheckBlitzCode
         sta     w7e6168
         jsr     _c16d56
@@ -19064,6 +19065,7 @@ UpdateMenuState_37:
 @7d35:  lda     $04
         bpl     @7d56       ; branch if a button is not pressed
         inc     $96         ; play cursor sound effect (select)
+		jsr		HapticFeedback
         jsr     _c16d56       ; get pointer to current character slot data (battle menu)
         lda     w7e7b82       ; swdtech bar counter / 32
         lsr5
@@ -19076,6 +19078,7 @@ UpdateMenuState_37:
 @7d56:  lda     $09
         bpl     @7d5f       ; branch if b button is not pressed
         inc     $96         ; play cursor sound effect (select)
+		jsr		HapticFeedback
         jmp     CloseBushidoWindow
 @7d5f:  ldx     w7e62ca       ; active character
         phx
@@ -19182,6 +19185,7 @@ UpdateMenuState_27:
 @7e13:  lda     $04
         bpl     @7e2e       ; branch if a button is not pressed
         inc     $94         ; play cursor sound effect (select)
+		jsr		HapticFeedback
         jsr     _c16d56       ; get pointer to current character slot data (battle menu)
         lda     #$15        ; command $15 (def.)
         sta     $2baf,y
@@ -19680,7 +19684,7 @@ UpdateMenuState_0e:
         jeq     UpdateMenuState_3f
         jmp     _c17795
 @81eb:  inc     $95         ; play error sound effect
-
+		jsr		HapticFeedback
 ; B button
 @81ed:  lda     $09
         bpl     @81f6       ; branch if b button is not pressed
@@ -19879,6 +19883,7 @@ UpdateMenuState_16:
         sta     w7e7a84
         jmp     _c17795
 @82f8:  inc     $95         ; play cursor sound effect (select)
+		jsr		HapticFeedback
 @82fa:  lda     #$38        ; set main cursor position
         sta     w7e88e3+1
         lda     #$a8
@@ -20622,6 +20627,7 @@ UpdateMenuState_30:
         inc
         sta     w7e895f,y
         inc     $94         ; play cursor sound effect
+		jsr		HapticFeedback
         jsr     ScrollToolsListDown
         bra     @87eb
 
@@ -20631,6 +20637,7 @@ UpdateMenuState_30:
         dec
         sta     w7e895f,y
         inc     $94         ; play cursor sound effect
+		jsr		HapticFeedback
         jsr     ScrollToolsListUp
 
 ; no scroll
@@ -21394,6 +21401,7 @@ UpdateMenuState_0c:
         cmp     #$01
         bne     @8dcd       ; branch if the right button is not pressed
         inc     $94         ; play move sound effect
+		jsr		HapticFeedback
         lda     w7e894b,x     ; cursor x position
         cmp     #$01        ; check if on the right item slot
         bne     @8dc8       ; branch if not in the right slot
@@ -21408,6 +21416,7 @@ UpdateMenuState_0c:
         lda     w7e894b,x     ; cursor x position
         beq     @8dec       ; branch if in the left slot
         inc     $94         ; play move sound effect
+		jsr		HapticFeedback
         dec     w7e894b,x     ; move the cursor to the left item slot
         bra     @8dec
 
@@ -21420,6 +21429,7 @@ UpdateMenuState_0c:
 .endif
         stz     w7e7bb5
         inc     $94         ; play move sound effect
+		jsr		HapticFeedback
         jmp     CloseEquipWindow
 
 ; A button
@@ -21429,10 +21439,12 @@ UpdateMenuState_0c:
         lda     w7e6286,x
         beq     @8dfc       ; branch if can change equipment
         inc     $95         ; play error sound effect
+		jsr		HapticFeedback
         bra     @8e08
 @8dfc:  lda     #$01
         sta     $2f30,x     ; set equipment change flag
         inc     $96         ; play confirm sound effect
+		jsr		HapticFeedback
         jsr     SelectEquipItem
         bcc     @8e08
 
@@ -21440,6 +21452,7 @@ UpdateMenuState_0c:
 @8e08:  lda     $09
         bpl     @8e1d
         inc     $96         ; play confirm sound effect
+		jsr		HapticFeedback
         stz     w7e890c
         jsr     _c18e34
         stz     w7e7baf
@@ -22276,6 +22289,7 @@ MonsterDeathAnim:
         lda     $14
         sta     $10
         lda     #$2d                    ; sound effect $2d (monster death)
+		jsr		HapticFeedback
         jsr     PlayAnimSfx
         lda     #$20                    ; animation takes 32 frames
 
