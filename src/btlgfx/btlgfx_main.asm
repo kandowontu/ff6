@@ -76,6 +76,13 @@ HapticFeedback:
 		lda #$02
 		sta $02FF
 		rts
+; ------------------------------------------------------------------------------
+HapticFeedback2:
+		lda #$55
+		sta $02FE
+		lda #$06
+		sta $02FF
+		rts
 
 
 ; [ battle graphics ]
@@ -3153,7 +3160,7 @@ sound_window_set:
         adc     #$28        ; sound effect $28 for player 1, $29 for player 2
         sta     f:hAPUIO0
         stz     $93
-		jsr		HapticFeedback
+		jsr		HapticFeedback2
         rts
 
 ; ------------------------------------------------------------------------------
@@ -3178,7 +3185,7 @@ PlayAnimSfx:
         lda     #$18
         sta     w7ee9e8       ; spc command $18
         inc     w7ee9ec       ; enable animation sound effect
-		jsr		HapticFeedback
+		;jsr		HapticFeedback
         rts
 
 ; ------------------------------------------------------------------------------
@@ -21435,16 +21442,15 @@ UpdateMenuState_0c:
 ; A button
 @8dec:  lda     $04
         bpl     @8e08
+		jsr		HapticFeedback
         ldx     w7e62ca
         lda     w7e6286,x
         beq     @8dfc       ; branch if can change equipment
         inc     $95         ; play error sound effect
-		jsr		HapticFeedback
         bra     @8e08
 @8dfc:  lda     #$01
         sta     $2f30,x     ; set equipment change flag
         inc     $96         ; play confirm sound effect
-		jsr		HapticFeedback
         jsr     SelectEquipItem
         bcc     @8e08
 
@@ -22289,7 +22295,7 @@ MonsterDeathAnim:
         lda     $14
         sta     $10
         lda     #$2d                    ; sound effect $2d (monster death)
-		jsr		HapticFeedback
+		jsr		HapticFeedback2
         jsr     PlayAnimSfx
         lda     #$20                    ; animation takes 32 frames
 
@@ -43476,6 +43482,10 @@ CircleShapeTbl:
 
 CircleShape_07:
         .i8
+		lda		#$FF		;rumble max intensity
+		sta 	$02FE
+		lda		#$18		;rumble for $18 frames
+		sta		$02FF		
 @d553:  ldx     #$fe
         stz     $22
         stz     $26
@@ -47939,6 +47949,10 @@ _c2f66f:
 magic_type28_main2:
 @f66f:  sta     $26
         clr_ax
+		lda		#$AA		;rumble max intensity
+		sta 	$02FE
+		lda		#$FF		;rumble for $18 frames
+		sta		$02FF
         longa
         lda     w7e613d       ; targets
         ldy     #$0010

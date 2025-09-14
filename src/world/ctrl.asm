@@ -96,6 +96,12 @@ GetVehicleInput:
         lda     $04
         bit     #$0080
         beq     @6c92
+		shorta
+		lda		#$22
+		sta 	$02FE
+		lda		#$04
+		sta		$02FF
+		longa
         lda     $26
         clc
         adc     #$0040
