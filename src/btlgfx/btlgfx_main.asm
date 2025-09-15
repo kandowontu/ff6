@@ -71,17 +71,23 @@ inc_lang "text/status_name_%s.inc"
 
 ; ------------------------------------------------------------------------------
 HapticFeedback:
+		lda $02FF
+		bne @done
 		lda #$33
 		sta $02FE
 		lda #$02
 		sta $02FF
+@done:
 		rts
 ; ------------------------------------------------------------------------------
 HapticFeedback2:
-		lda #$55
+		lda $02FF
+		bne @done
+		lda #$66
 		sta $02FE
-		lda #$06
+		lda #$08
 		sta $02FF
+@done:
 		rts
 
 
@@ -3185,7 +3191,7 @@ PlayAnimSfx:
         lda     #$18
         sta     w7ee9e8       ; spc command $18
         inc     w7ee9ec       ; enable animation sound effect
-		;jsr		HapticFeedback
+		jsr		HapticFeedback2
         rts
 
 ; ------------------------------------------------------------------------------
@@ -47312,6 +47318,7 @@ AnimType_34:
 
 AnimType_33:
 @f289:  ldx     #$0181      ; ifrit
+		SetRumble	$66, 38
         jsl     LoadSummonGfxSprite_far
         jsr     LoadSummonPalSprite
         jsr     _c2fa27
@@ -47341,6 +47348,7 @@ AnimType_32:
 
 AnimType_24:
 @f2b9:  jsr     AnimType_14
+		;jsr		HapticFeedback2
         jmp     AnimType_1d
 
 ; ------------------------------------------------------------------------------
@@ -47427,6 +47435,7 @@ AnimType_29:
         lda     #$06
         sta     w7e961b       ; circle shape 6 (horizontal oval)
         stz     w7e60ac       ; unpause bg1 animation threads
+		SetRumble	$99, 180
         rts
 
 ; ------------------------------------------------------------------------------
@@ -48200,6 +48209,7 @@ AnimType_10:
 @f809:  lda     #$02
         sta     w7e7b0e       ; 2 monster threads
         sta     w7e7b0f       ; 2 character threads
+		SetRumble $77, 25
         rts
 
 ; ------------------------------------------------------------------------------

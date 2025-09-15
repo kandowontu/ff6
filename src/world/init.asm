@@ -1830,6 +1830,7 @@ LandAirship:
         lda     $c2
         bit     #$02
         jne     @942c                   ; return if airship can't land
+		SetRumble	$44, 65
         lda     $1f64
         cmp     #$01
         bne     @93d4                   ; branch if not in WoR

@@ -881,6 +881,7 @@ VehicleCmd_fc:
         shorta
         lda     #$01
         sta     $ca
+		SetRumble	$AA, 40
         jsr     AirshipCrash
         pld
         plb
