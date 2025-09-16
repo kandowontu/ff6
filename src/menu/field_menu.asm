@@ -1476,15 +1476,7 @@ MenuState_0c:
 ; [ menu state $6b: unused ]
 
 MenuState_6b:
-@22b4:  lda     z08+1
-        bit     #>JOY_B
-        beq     @22c4
-        jsr     PlayCancelSfx
-        lda     #$04
-        sta     zNextMenuState
-        stz     zMenuState
-        rts
-@22c4:  rts
+
 
 ; ------------------------------------------------------------------------------
 

@@ -2897,13 +2897,7 @@ BlitzInputTileTbl:
 
 ; unused
 SkillsListTextPtrs:
-@5c3a:  .addr   SkillsGenjuText
-        .addr   SkillsMagicText
-        .addr   SkillsBushidoText
-        .addr   SkillsBlitzText
-        .addr   SkillsLoreText
-        .addr   SkillsRageText
-        .addr   SkillsDanceText
+
 
 SkillsGenjuText:                pos_text SKILLS_LIST_GENJU
 SkillsMagicText:                pos_text SKILLS_LIST_MAGIC

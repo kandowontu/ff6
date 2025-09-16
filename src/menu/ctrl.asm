@@ -282,6 +282,8 @@ SetDefaultBtnMap:
 
 ; ------------------------------------------------------------------------------
 
+.segment "battle_groups"
+
 .proc RumbleRead
 RumbleRead:
     LDA $02FF

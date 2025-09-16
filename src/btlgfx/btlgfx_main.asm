@@ -22300,8 +22300,8 @@ MonsterDeathAnim:
         bne     @9449
         lda     $14
         sta     $10
-        lda     #$2d                    ; sound effect $2d (monster death)
 		jsr		HapticFeedback2
+        lda     #$2d                    ; sound effect $2d (monster death)
         jsr     PlayAnimSfx
         lda     #$20                    ; animation takes 32 frames
 

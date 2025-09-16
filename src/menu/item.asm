@@ -2356,17 +2356,7 @@ CheckCanUseItem:
         bra     @8bd0
 
 ; tent/megalixir ??? (unused)
-        clr_ax
-@8bfa:  stx     zed
-        ldy     a:zCharPropPtr,x     ; check each character in the party
-        beq     @8c06
-        jsr     @8be5       ; check if elixir is valid
-        bcs     @8be3
-@8c06:  ldx     zed
-        inx2                ; next character
-        cpx     #8
-        bne     @8bfa
-        bra     @8bd0
+
 
 ; sleeping bag
 @8c11:  lda     $0014,y
