@@ -32474,6 +32474,7 @@ magic_init_7:
         lda     wAnimThread::w7e74d0,x     ; thread y offset
         sta     w7e5f8d+1       ; tornado y position
         shorta0
+		SetRumble $FF, 90
         rts
 
 ; ------------------------------------------------------------------------------
@@ -48066,7 +48067,6 @@ AnimType_11:
 
 AnimType_0f:
 @f741:  jsr     _c2fa1b
-		jsr		MaxStrMagic
         jsl     ResetSpritePriority_far
         jsl     GetAttackerID_far
         lda     $10
