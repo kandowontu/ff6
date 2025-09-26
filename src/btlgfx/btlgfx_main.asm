@@ -91,6 +91,7 @@ HapticFeedback2:
 		rts
 
 
+
 ; [ battle graphics ]
 
 ExecBtlGfx_ext:
@@ -6862,40 +6863,6 @@ one_status_chr_set:
 
 ; unused ???
 
-@30c3:  phy
-        phx
-        phb
-        lda     #$7f
-        pha
-        plb
-        ldx     #$8000
-        ldy     #$0100
-@30d0:  lda     #$08
-        sta     $16
-@30d4:  lda     a:$0001,x
-        ora     a:$0010,x
-        ora     a:$0011,x
-        not_a
-        and     a:$0000,x
-        sta     a:$0000,x
-        stz     a:$0001,x
-        stz     a:$0010,x
-        stz     a:$0011,x
-        inx2
-        dec     $16
-        bne     @30d4
-        longa
-        txa
-        clc
-        adc     #$0010
-        tax
-        shorta0
-        dey
-        bne     @30d0
-        plb
-        plx
-        ply
-        rts
 
 ; ------------------------------------------------------------------------------
 
@@ -26370,6 +26337,8 @@ InitAnimType:
 @b1bb:  jsl     ExecAnimType
         rts
 
+
+
 ; ------------------------------------------------------------------------------
 
 ; [  ]
@@ -32041,6 +32010,7 @@ magic_init_31:
         sta     w7e9613       ; circle size
         lda     w7e961b       ; save circle shape
         pha
+		SetRumble $66, 190
         stz     w7e961b       ; circle shape 0 (circle)
         lda     #$4c
         sta     w7e9615       ; circle y position
@@ -46230,7 +46200,8 @@ AnimType_73:
 ; [ battle animation init $71: remedy ]
 
 AnimType_71:
-@eb91:  jsr     _c2f9eb
+@eb91:  SetRumble $33, 140
+		jsr     _c2f9eb
         jmp     _c2eefe
 
 ; ------------------------------------------------------------------------------
@@ -46351,7 +46322,8 @@ AnimType_68:
 ; [ battle animation init $67: demi, quartr, reflect???, charm ]
 
 AnimType_67:
-@ec43:  lda     #$08
+@ec43:  jsr HiStrMagic
+		lda     #$08
         jsr     _c2f011
         jmp     _c2f9d3
 
@@ -46793,7 +46765,8 @@ AnimType_52:
 ; vargas' blizzard fist
 
 AnimType_51:
-@ef1c:  jmp     _c2f9c7
+@ef1c:  jsr HiStrMagic
+		jmp     _c2f9c7
 
 ; ------------------------------------------------------------------------------
 
@@ -46801,7 +46774,8 @@ AnimType_51:
 
 AnimType_50:
 @ef1f:  jsr     _c2f98b       ; add bg1, affect bg2
-        clr_ax
+        jsr HiStrMagic
+		clr_ax
 @ef24:  lda     $7fc401,x   ; bg1 tile data buffer
         and     #$df        ; set tile priority to 0
         sta     $7fc401,x
@@ -46821,7 +46795,8 @@ AnimType_50:
 ; [ battle animation init $4f: sneeze, green cherry ]
 
 AnimType_4f:
-@ef48:  jmp     _c2f9eb
+@ef48:  jsr 	HapticFeedback2
+		jmp     _c2f9eb
 
 ; ------------------------------------------------------------------------------
 
@@ -46830,7 +46805,8 @@ AnimType_4f:
 AnimType_4e:
 @ef4b:  inc     a:$0099       ; pause sprite animation threads
         inc     w7e60ad       ; pause bg3 animation threads
-        jsr     _c2f9c7
+		jsr	LowStrMagic
+	   jsr     _c2f9c7
         lda     #$08
         jmp     _ef5b
 
@@ -47348,7 +47324,7 @@ AnimType_32:
 
 AnimType_24:
 @f2b9:  jsr     AnimType_14
-		;jsr		HapticFeedback2
+		jsr		HapticFeedback2
         jmp     AnimType_1d
 
 ; ------------------------------------------------------------------------------
@@ -47529,7 +47505,9 @@ AnimType_2c:
 
 AnimType_2a:
 magic_type2a:
-@f3e9:  jsr     _c2f9df
+@f3e9:  
+		jsr     _c2f9df
+		SetRumble $44, 75
         jsr     InitCircle
         lda     #$cc
         sta     f:hW34SEL
@@ -47777,6 +47755,7 @@ AnimType_15:
 _c2f590:
 @f590:  lda     #$08
         sta     $26
+		SetRumble	$77, 100
         lda     #$05
         jsr     CopyThread
         lda     #$06
@@ -47787,7 +47766,8 @@ _c2f590:
 ; [ battle animation init $2d: merton ]
 
 AnimType_2d:
-@f59e:  jmp     _c2fa33
+@f59e:  SetRumble $AA, 170
+		jmp     _c2fa33
 
 ; ------------------------------------------------------------------------------
 
@@ -48012,6 +47992,7 @@ AnimType_25:
 @f6c4:  jsr     _c2fa3f       ; set color add/sub data (add bg1 and bg2, affect sprites)
         lda     #$08        ; 8 frame delay between threads
         sta     $26
+		jsr		LowStrMagic
         lda     #$02        ; make 2 copies
         jsr     CopyThread
         lda     #$03
@@ -48085,6 +48066,7 @@ AnimType_11:
 
 AnimType_0f:
 @f741:  jsr     _c2fa1b
+		jsr		MaxStrMagic
         jsl     ResetSpritePriority_far
         jsl     GetAttackerID_far
         lda     $10
@@ -48104,6 +48086,7 @@ AnimType_0f:
 AnimType_16:
 @f763:  jsr     _c2fa1b
         jsr     InitCircle
+		SetRumble $33, 140
         lda     #$3c
         sta     f:hW12SEL
         lda     #$03
@@ -48247,10 +48230,28 @@ AnimType_02:
 
 ; ------------------------------------------------------------------------------
 
+
+LowStrMagic:
+	SetRumble $55, 20
+	rts
+
+MedStrMagic:
+	SetRumble $88, 35
+	rts
+
+HiStrMagic:
+	SetRumble $AA, 60
+	rts
+
+MaxStrMagic:
+	SetRumble $FF, 90
+	rts
+
 ; [ battle animation init $00: bolt, suplex, bomblet ]
 
 AnimType_00:
-@f836:  jmp     _c2fa3f       ; add bg1 & bg2, affect sprites
+@f836:  jsr		LowStrMagic
+		jmp     _c2fa3f       ; add bg1 & bg2, affect sprites
 
 ; ------------------------------------------------------------------------------
 
@@ -48261,7 +48262,8 @@ AnimType_00:
 ; shadowfang, royalshock, morph
 
 AnimType_1b:
-@f839:  jmp     _c2fa1b       ; add bg1, affect sprites & bg2
+@f839:  jsr		MedStrMagic
+		jmp     _c2fa1b       ; add bg1, affect sprites & bg2
 
 ; ------------------------------------------------------------------------------
 
@@ -48271,6 +48273,7 @@ AnimType_26:
 @f83c:  lda     w7e896f       ; disable bg3 priority
         and     #$f7
         sta     w7e896f
+		jsr		MedStrMagic
         jmp     _c2fa0f       ; add bg1, affect bg3
 
 ; ------------------------------------------------------------------------------
@@ -48296,6 +48299,7 @@ magic_type27:
         jsl     UpdateSpritePriority_far
         jsl     ClearBG3Tiles_far
         jsl     _c1aaa1
+		jsr		MedStrMagic
         lda     $12
         bpl     @f88f       ; branch if a character
         and     #$7f
@@ -48336,7 +48340,8 @@ magic_type27:
 
 AnimType_1d:
 magic_type1d:
-@f8ca:  stz     w7e7b67
+@f8ca:  jsr		HiStrMagic
+		stz     w7e7b67
         jsl     ResetSpritePriority_far
         jsl     WaitFrame_far
         jsl     ClearBG3Tiles_far
