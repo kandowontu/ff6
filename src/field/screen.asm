@@ -1144,6 +1144,17 @@ SingleShake:
         tax
         lda     f:ShakeAndTbl,x
         sta     $074b
+		jsr		Rand
+		and		#$0F
+		sta		$02FD
+		jsr		Rand
+		and		#$F0
+		clc
+		adc		$02FD
+		sta		$02FE		;rumble intensity
+		lda		#$02
+		sta		$02FF		;rumble timer
+        ldx     $00		
         bra     SetShakeOffsets
 
 ; restart the shake at a random amplitude

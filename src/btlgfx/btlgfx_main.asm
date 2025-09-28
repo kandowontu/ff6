@@ -46465,6 +46465,7 @@ AnimType_63:
         shorta0
         clr_ax
         stz     $10
+		SetRumble $DD, 180
 @ed3e:  lda     $10
         clc
         adc     #$06
@@ -46521,6 +46522,7 @@ AnimType_61:
         sta     f:hW12SEL
         lda     #$cc
         sta     f:hW34SEL
+		jsr		MaxStrongRumble
         jmp     AnimType_0b
 
 ; ------------------------------------------------------------------------------
@@ -46741,6 +46743,7 @@ AnimType_54:
 AnimType_53:
 @eef6:  jsr     _c2f9d3
         inc     w7e60ac       ; pause bg1 animation threads
+		SetRumble $88, 180
         lda     #$02
 
 _c2eefe:
@@ -46759,7 +46762,8 @@ AnimType_52:
         jsr     InitCircle
         lda     #$3c
         sta     f:hW12SEL
-        lda     #$01
+        SetRumble $22, 140
+		lda     #$01
         sta     w7e961b       ; circle shape 1 (bio blast)
         rts
 
@@ -47059,7 +47063,7 @@ AnimType_42:
         jsl     LoadSummonGfxBG1_far
         jsr     LoadSummonPalBG1
         jsr     InitCircle
-		SetRumble $FF, 250
+		jsr		MaxStrongRumble
         lda     #$cc
         sta     f:hW34SEL
         stz     w7e961b       ; circle shape 0 (circle)
@@ -47187,12 +47191,16 @@ magic_type3b:
         lda     w7e896f
         and     #$f7
         sta     w7e896f
-		SetRumble $FF, 250
+		jsr		MaxStrongRumble
         jmp     AnimType_0b
 
 ; ------------------------------------------------------------------------------
 
 ; [  ]
+
+MaxStrongRumble:
+	SetRumble $FF, 250
+	rts
 
 _c2f1ca:
 magic_type3b_sub:
@@ -47952,6 +47960,7 @@ magic_type28:
         sta     f:hW12SEL     ; enable bg1 in window 2, bg2 in window 1
         lda     #$cc
         sta     f:hW34SEL     ; enable bg3 in window 2
+		jsr		MaxStrongRumble
 
 _c2f66d:
 magic_type28_main:
