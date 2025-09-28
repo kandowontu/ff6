@@ -46258,6 +46258,7 @@ AnimType_6d:
 @ebe1:  ldx     #$0194      ; phantom
         jsl     LoadSummonGfxBG1_far
         jsr     LoadSummonPalBG1
+		SetRumble $11, 120
         jmp     AnimType_03
 
 ; ------------------------------------------------------------------------------
@@ -46269,6 +46270,7 @@ AnimType_6c:
         jsl     LoadSummonGfxSprite_far
         jsr     LoadSummonPalSprite
         jsr     _c2f9c7
+		SetRumble $DD, 150
         jmp     AnimType_0b
 
 ; ------------------------------------------------------------------------------
@@ -46283,6 +46285,7 @@ AnimType_6b:
         jsr     LoadSummonPalBG1
         jsl     ClearBGAnimFrames_far
         plx
+		SetRumble $FF, 90
         jsl     LoadSummonGfxSprite_far
         jsr     LoadSummonPalSprite
         inc     w7e62b0
@@ -46296,6 +46299,7 @@ AnimType_6a:
 @ec1c:  ldx     #$0190      ; ragnarok
         jsl     LoadSummonGfxBG1_far
         jsr     LoadSummonPalBG1
+		SetRumble $FF, 65
         jmp     AnimType_0b
 
 ; ------------------------------------------------------------------------------
@@ -46986,6 +46990,7 @@ AnimType_45:
 @f070:  jsr     InitMode7
         ldx     #$018b      ; odin
         phx
+		SetRumble $FF, 60
         jsl     _c12400
         jsr     LoadSummonPalBG1
         jsl     ClearBGAnimFrames_far
@@ -47037,6 +47042,7 @@ AnimType_43:
         lda     #$cc
         sta     f:hW34SEL
         stz     w7e961b       ; circle shape 0 (circle)
+		SetRumble $55, 250
         jmp     AnimType_0b
 
 ; ------------------------------------------------------------------------------
@@ -47050,6 +47056,7 @@ AnimType_42:
         jsl     LoadSummonGfxBG1_far
         jsr     LoadSummonPalBG1
         jsr     InitCircle
+		SetRumble $FF, 250
         lda     #$cc
         sta     f:hW34SEL
         stz     w7e961b       ; circle shape 0 (circle)
@@ -47064,6 +47071,7 @@ AnimType_41:
         jsl     LoadSummonGfxSprite_far
         jsr     LoadSummonPalSprite
         jsr     _c2fa1b
+		SetRumble $99, 150
         jmp     AnimType_0b
 
 ; ------------------------------------------------------------------------------
@@ -47104,6 +47112,7 @@ AnimType_3e:
         lda     w7e896f
         and     #$f7
         sta     w7e896f
+		SetRumble $44, 60
         jmp     AnimType_0b
 
 ; ------------------------------------------------------------------------------
@@ -47116,6 +47125,7 @@ AnimType_3d:
         jsr     LoadSummonPalSprite
         jsr     _c2fa27
         jsr     InitCircle
+		SetRumble $44, 160
         lda     #$3c
         sta     f:hW12SEL
         lda     #$04
@@ -47130,6 +47140,7 @@ AnimType_3c:
 @f16b:  ldx     #$0193      ; carbunkl
         jsl     LoadSummonGfxSprite_far
         jsr     LoadSummonPalSprite
+		SetRumble $55, 110
         jmp     AnimType_0b
 
 ; ------------------------------------------------------------------------------
@@ -47173,6 +47184,7 @@ magic_type3b:
         lda     w7e896f
         and     #$f7
         sta     w7e896f
+		SetRumble $FF, 250
         jmp     AnimType_0b
 
 ; ------------------------------------------------------------------------------
@@ -47208,6 +47220,7 @@ AnimType_3a:
 @f1fa:  stz     w7e62ad
         stz     w7e62ae
         jsr     _c2f66d
+		SetRumble $22, 250
         ldx     #$0183      ; siren
         jsl     LoadSummonGfxBG1_far
         jsr     LoadSummonPalBG1
@@ -47223,6 +47236,7 @@ AnimType_39:
         jsl     LoadSummonGfxSprite_far
         jsr     LoadSummonPalSprite
         jsr     _c2f9c7
+		SetRumble $66, 150
         jmp     AnimType_0b
 
 ; ------------------------------------------------------------------------------
@@ -47234,7 +47248,8 @@ AnimType_38:
         jsl     LoadSummonGfxSprite_far
         jsr     LoadSummonPalSprite
         jsr     _c2f9eb       ; add bg2, affect sprites
-        jmp     AnimType_0b       ; two animation threads
+        SetRumble	$66, 170
+		jmp     AnimType_0b       ; two animation threads
 
 ; ------------------------------------------------------------------------------
 
@@ -47260,6 +47275,7 @@ AnimType_36:
         jsl     LoadSummonGfxSprite_far
         jsr     LoadSummonPalSprite
         jsr     _c2fa1b
+		SetRumble	$99, 235
         jmp     AnimType_0b
 
 ; ------------------------------------------------------------------------------
@@ -47276,6 +47292,7 @@ AnimType_35:
         jsl     LoadSummonGfxSprite_far
         jsr     LoadSummonPalSprite
         jsr     _c2f9a3
+		SetRumble $DD, 230
         jmp     AnimType_0b
 
 ; ------------------------------------------------------------------------------
@@ -47287,6 +47304,7 @@ AnimType_34:
         jsl     LoadSummonGfxSprite_far
         jsr     LoadSummonPalSprite
         inc     w7e62b0
+		SetRumble $AA, 90
         rts
 
 ; ------------------------------------------------------------------------------
@@ -47295,7 +47313,7 @@ AnimType_34:
 
 AnimType_33:
 @f289:  ldx     #$0181      ; ifrit
-		SetRumble	$66, 38
+		SetRumble	$66, 170
         jsl     LoadSummonGfxSprite_far
         jsr     LoadSummonPalSprite
         jsr     _c2fa27
@@ -47939,10 +47957,6 @@ _c2f66f:
 magic_type28_main2:
 @f66f:  sta     $26
         clr_ax
-		lda		#$AA		;rumble max intensity
-		sta 	$02FE
-		lda		#$FF		;rumble for $18 frames
-		sta		$02FF
         longa
         lda     w7e613d       ; targets
         ldy     #$0010
@@ -48192,8 +48206,10 @@ AnimType_10:
 @f809:  lda     #$02
         sta     w7e7b0e       ; 2 monster threads
         sta     w7e7b0f       ; 2 character threads
+		lda     $02FF
+		bne @skip
 		SetRumble $77, 25
-        rts
+@skip:  rts
 
 ; ------------------------------------------------------------------------------
 
