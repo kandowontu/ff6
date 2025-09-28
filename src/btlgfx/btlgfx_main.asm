@@ -46770,7 +46770,7 @@ AnimType_52:
 ; vargas' blizzard fist
 
 AnimType_51:
-@ef1c:  jsr HiStrMagic
+@ef1c:  jsr MaxStrMagic
 		jmp     _c2f9c7
 
 ; ------------------------------------------------------------------------------
@@ -46779,7 +46779,7 @@ AnimType_51:
 
 AnimType_50:
 @ef1f:  jsr     _c2f98b       ; add bg1, affect bg2
-        jsr HiStrMagic
+        SetRumble $AA, 180
 		clr_ax
 @ef24:  lda     $7fc401,x   ; bg1 tile data buffer
         and     #$df        ; set tile priority to 0
@@ -46800,7 +46800,10 @@ AnimType_50:
 ; [ battle animation init $4f: sneeze, green cherry ]
 
 AnimType_4f:
-@ef48:  jsr 	HapticFeedback2
+@ef48:  lda #$66
+		sta $02FE
+		lda #$08
+		sta $02FF
 		jmp     _c2f9eb
 
 ; ------------------------------------------------------------------------------
@@ -47904,7 +47907,8 @@ magic_type14:
         sta     $26
         lda     #$05
         jsr     CopyThread
-        lda     #$06
+        jsr		LowStrMagic
+		lda     #$06
         jmp     SetNumThreads
 
 ; ------------------------------------------------------------------------------
@@ -48007,7 +48011,7 @@ AnimType_25:
 @f6c4:  jsr     _c2fa3f       ; set color add/sub data (add bg1 and bg2, affect sprites)
         lda     #$08        ; 8 frame delay between threads
         sta     $26
-		jsr		LowStrMagic
+		jsr		MedStrMagic
         lda     #$02        ; make 2 copies
         jsr     CopyThread
         lda     #$03
