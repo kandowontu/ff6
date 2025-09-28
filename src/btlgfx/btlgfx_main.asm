@@ -46508,6 +46508,7 @@ AnimType_62:
         and     #$ef
         sta     w7e896f
         jsl     GetAttackerID_far
+		jsr		MaxStrongRumble
         lda     $10
         jmp     _c2f322
 
