@@ -6,22 +6,5 @@
     "text_en",
     "fixed_length_en"
   ],
-  "text": [
-    "DIRK",
-    "SWORD",
-    "LANCE",
-    "KNIFE",
-    "ROD",
-    "BRUSH",
-    "STARS",
-    "SPECIAL",
-    "GAMBLER",
-    "CLAW",
-    "SHIELD",
-    "HELMET",
-    "ARMOR",
-    "TOOL",
-    "SKEAN",
-    "RELIC"
-  ]
+  "text": []
 }

@@ -6,14 +6,5 @@
     "null_terminated_en",
     "text_en"
   ],
-  "text": [
-    "Single attack",
-    "Single counter attack",
-    "Halves an enemy's HP",
-    "4-stroke attack",
-    "Absorbs an enemy's HP/MP",
-    "Multiple attack/casts ``Stop''",
-    "4-stroke attack",
-    "Dices up enemies"
-  ]
+  "text": []
 }
