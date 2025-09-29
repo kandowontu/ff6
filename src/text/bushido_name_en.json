@@ -6,14 +6,5 @@
     "text_en",
     "fixed_length_en"
   ],
-  "text": [
-    "Dispatch",
-    "Retort",
-    "Slash",
-    "Quadra Slam",
-    "Empowerer",
-    "Stunner",
-    "Quadra Slice",
-    "Cleave"
-  ]
+  "text": []
 }
