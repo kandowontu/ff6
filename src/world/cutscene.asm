@@ -1216,6 +1216,7 @@ RuinScene:
 _ee1378:
 sabaki1:
 @1378:  shorta
+        SetRumble $99, 250
 		lda     #$8f
         sta     hINIDISP
         stz     hNMITIMEN
@@ -1307,7 +1308,6 @@ sabaki1:
         sta     hAPUIO1
         lda     #$18
         sta     hAPUIO0
-		SetRumble $99, 100
         lda     $1e
         ora     #$20
         sta     $1e

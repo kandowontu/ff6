@@ -1,0 +1,515 @@
+.ifndef MENU_TEXT_INC
+MENU_TEXT_INC = 1
+
+; ------------------------------------------------------------------------------
+
+; misc. individual text characters
+.define ZERO_CHAR                       $53  ; 0
+.define COLON_CHAR                      $cf  ; :
+.define GAUGE_EMPTY_CHAR                $10  ; {gauge_empty}
+.define GAUGE_FULL_CHAR                 $18  ; {gauge_full}
+.define GAUGE_LEFT_CHAR                 $19  ; {gauge_left}
+.define GAUGE_RIGHT_CHAR                $1a  ; {gauge_right}
+
+; ------------------------------------------------------------------------------
+
+; field menu text strings
+.define MAIN_MENU_WOUNDED               {$7b,$b9,$87,$89,$65,$9b,$89,$ff}  ; せんとうふのう　
+
+.define CHAR_BLOCK_1_LEVEL              BG1A, {10, 5}, {$2b,$35,$00}  ; LV
+.define CHAR_BLOCK_1_HP                 BG1A, {10, 6}, {$27,$2f,$00}  ; HP
+.define CHAR_BLOCK_1_MP                 BG1A, {10, 7}, {$2c,$2f,$00}  ; MP
+.define CHAR_BLOCK_1_HP_SLASH           BG1A, {17, 6}, {$ce,$00}  ; /
+.define CHAR_BLOCK_1_MP_SLASH           BG1A, {17, 7}, {$ce,$00}  ; /
+
+.define CHAR_BLOCK_2_LEVEL              BG1A, {10, 11}, {$2b,$35,$00}  ; LV
+.define CHAR_BLOCK_2_HP                 BG1A, {10, 12}, {$27,$2f,$00}  ; HP
+.define CHAR_BLOCK_2_MP                 BG1A, {10, 13}, {$2c,$2f,$00}  ; MP
+.define CHAR_BLOCK_2_HP_SLASH           BG1A, {17, 12}, {$ce,$00}  ; /
+.define CHAR_BLOCK_2_MP_SLASH           BG1A, {17, 13}, {$ce,$00}  ; /
+
+.define CHAR_BLOCK_3_LEVEL              BG1A, {10, 17}, {$2b,$35,$00}  ; LV
+.define CHAR_BLOCK_3_HP                 BG1A, {10, 18}, {$27,$2f,$00}  ; HP
+.define CHAR_BLOCK_3_MP                 BG1A, {10, 19}, {$2c,$2f,$00}  ; MP
+.define CHAR_BLOCK_3_HP_SLASH           BG1A, {17, 18}, {$ce,$00}  ; /
+.define CHAR_BLOCK_3_MP_SLASH           BG1A, {17, 19}, {$ce,$00}  ; /
+
+.define CHAR_BLOCK_4_LEVEL              BG1A, {10, 23}, {$2b,$35,$00}  ; LV
+.define CHAR_BLOCK_4_HP                 BG1A, {10, 24}, {$27,$2f,$00}  ; HP
+.define CHAR_BLOCK_4_MP                 BG1A, {10, 25}, {$2c,$2f,$00}  ; MP
+.define CHAR_BLOCK_4_HP_SLASH           BG1A, {17, 24}, {$ce,$00}  ; /
+.define CHAR_BLOCK_4_MP_SLASH           BG1A, {17, 25}, {$ce,$00}  ; /
+
+.define MAIN_MENU_ITEM                  BG3A, {25, 3}, {$8a,$8c,$84,$a0,$00}  ; アイテム
+.define MAIN_MENU_SKILLS                BG3A, {25, 5}, {$87,$6f,$77,$c1,$00}  ; とくしゅ
+.define MAIN_MENU_EQUIP                 BG3A, {25, 6}, {$7d,$89,$23,$00}  ; そうび
+.define MAIN_MENU_RELIC                 BG3A, {25, 9}, {$8a,$6e,$7a,$74,$a8,$00}  ; アクセサリ
+.define MAIN_MENU_STATUS                BG3A, {25, 11}, {$78,$84,$c5,$7e,$78,$00}  ; ステータス
+.define MAIN_MENU_CONFIG                BG3A, {25, 12}, {$72,$b8,$64,$c6,$2e,$00}  ; コンフィグ
+.define MAIN_MENU_SAVE                  BG3A, {25, 14}, {$7a,$c5,$24,$00}  ; セーブ
+.define MAIN_MENU_TIME                  BG3A, {25, 17}, {$33,$28,$2c,$24,$00}  ; ごボギブ
+.define MAIN_MENU_COLON                 BG3A, {27, 18}, {$cf,$00}  ; ：
+.define MAIN_MENU_STEPS                 BG3A, {23, 21}, {$69,$79,$89,$00}  ; ほすう
+.define MAIN_MENU_GIL                   BG3A, {23, 23}, {$2c,$aa,$00}  ; ギル
+
+.define GAME_LOAD_YES                   BG3A, {26, 8}, {$61,$8d,$00}  ; はい
+.define GAME_LOAD_NO                    BG3A, {26, 10}, {$8d,$8d,$8f,$00}  ; いいえ
+.define GAME_LOAD_MSG_1                 BG3A, {23, 2}, {$73,$9b,$44,$c5,$7e,$45,$00}  ; このデータで
+.define GAME_LOAD_MSG_2                 BG3A, {23, 4}, {$61,$37,$a3,$9d,$79,$6b,$cb,$00}  ; はじめますか？
+
+.define GAME_SAVE_MSG_1                 BG3A, {23, 2}, {$73,$ad,$bb,$71,$77,$85,$00}  ; これをけして
+.define GAME_SAVE_MSG_2                 BG3A, {23, 4}, {$6b,$6d,$73,$9f,$9d,$79,$d2,$00}  ; かきこみます。
+.define GAME_SAVE_MSG_3                 BG3A, {23, 6}, {$8d,$8d,$45,$79,$6b,$cb,$00}  ; いいですか？
+.define GAME_SAVE_UNUSED                BG3A, {23, 16}, {$7a,$c5,$24,$77,$9d,$77,$7f,$d2,$00}  ; セーブしました。
+
+.define MAIN_MENU_ORDER                 BG3B, {26, 3}, {$7f,$8d,$71,$8d,$00}  ; たいけい
+
+; ------------------------------------------------------------------------------
+
+; colosseum menu text strings
+.define COLOSSEUM_ITEM_TITLE            BG3A, {2, 2}, {$72,$ae,$76,$8a,$a0,$00}  ; コロシアム
+.define COLOSSEUM_ITEM_MSG              BG3A, {9, 2}, {$8a,$8c,$84,$a0,$bb,$54,$83,$ff,$8f,$a7,$b9,$45,$6f,$3f,$75,$8d,$00}  ; アイテムを１つ　えらんでください
+
+.define COLOSSEUM_CHAR_BLANK_NAME       BG3A, {22, 15}, {$ff,$ff,$ff,$ff,$ff,$ff,$00}  ; 　　　　　　
+.define COLOSSEUM_CHAR_MSG              BG3A, {8, 19}, {$81,$c3,$89,$7b,$b9,$77,$bf,$bb,$6d,$a3,$85,$6f,$3f,$75,$8d,$00}  ; ちょうせんしゃをきめてください
+.define COLOSSEUM_UNKNOWN_PRIZE         BG3A, {4, 3}, {$cb,$cb,$cb,$cb,$cb,$cb,$cb,$cb,$00}  ; ？？？？？？？？
+
+; ------------------------------------------------------------------------------
+
+; skills menu strings
+.define SKILLS_LIST_GENJU               BG3A, {2, 2}, {$31,$b9,$37,$c1,$89,$00}  ; げんじゅう
+.define SKILLS_LIST_MAGIC               BG3A, {2, 4}, {$9d,$69,$89,$00}  ; まほう
+.define SKILLS_LIST_BUSHIDO             BG3A, {2, 8}, {$63,$bd,$75,$83,$71,$b9,$00}  ; ひっさつけん
+.define SKILLS_LIST_BLITZ               BG3A, {2, 10}, {$63,$bd,$75,$83,$b7,$35,$00}  ; ひっさつわざ
+.define SKILLS_LIST_LORE                BG3A, {2, 12}, {$91,$29,$8f,$7f,$b7,$35,$00}  ; おぼえたわざ
+.define SKILLS_LIST_RAGE                BG3A, {2, 14}, {$8b,$21,$ad,$ab,$00}  ; あばれる
+.define SKILLS_LIST_DANCE               BG3A, {2, 16}, {$91,$47,$a9,$00}  ; おどり
+
+.define SKILLS_BLANK_TITLE              BG3B, {2, 2}, {$ff,$ff,$ff,$ff,$ff,$ff,$00}  ; 　　　　　　
+.define SKILLS_MP_COST                  BG3B, {2, 3}, {$2c,$2f,$c7,$ff,$ff,$ff,$00}  ; ギぐ＿　　　
+.define SKILLS_LORE_TITLE               BG3B, {2, 2}, {$91,$29,$8f,$7f,$b7,$35,$00}  ; おぼえたわざ
+.define SKILLS_RAGE_TITLE               BG3B, {2, 2}, {$8b,$21,$ad,$ab,$ff,$ff,$00}  ; あばれる　　
+.define SKILLS_DANCE_TITLE              BG3B, {2, 2}, {$91,$47,$a9,$ff,$ff,$ff,$00}  ; おどり　　　
+.define SKILLS_GENJU_TITLE              BG3B, {2, 2}, {$31,$b9,$37,$c1,$89,$ff,$00}  ; げんじゅう　
+.define SKILLS_BLITZ_TITLE              BG3B, {2, 2}, {$63,$bd,$75,$83,$b7,$35,$00}  ; ひっさつわざ
+.define SKILLS_BUSHIDO_TITLE            BG3B, {2, 2}, {$63,$bd,$75,$83,$71,$b9,$00}  ; ひっさつけん
+
+.define SKILLS_CHAR_LEVEL               BG1B, {18, 7}, {$2b,$35,$00}  ; がざ
+.define SKILLS_CHAR_HP                  BG1B, {18, 9}, {$27,$2f,$00}  ; べぐ
+.define SKILLS_CHAR_MP                  BG1B, {18, 11}, {$2c,$2f,$00}  ; ギぐ
+.define SKILLS_CHAR_HP_SLASH            BG1B, {25, 9}, {$ce,$00}  ; ／
+.define SKILLS_CHAR_MP_SLASH            BG1B, {25, 11}, {$ce,$00}  ; ／
+
+.define GENJU_EQUIP_ERROR_MSG           {$2b,$a5,$bd,$85,$8d,$9d,$79,$00}  ; がもっています
+.define GENJU_LEARN_PCT                 BG1B, {22, 16}, {$37,$c1,$6f,$ad,$b9,$47,$00}  ; じゅくれんど
+.define GENJU_LEARN_RATE                BG1B, {13, 16}, {$91,$29,$8f,$ab,$78,$4b,$c5,$46,$00}  ; おぼえるスピード
+.define GENJU_AT_LEVEL_UP               {$ac,$26,$aa,$8a,$bc,$4d,$9b,$87,$6d,$95,$ff}  ; レベルアップのときに　
+
+; ------------------------------------------------------------------------------
+
+; bushido renaming menu text strings
+.define BUSHIDO_GAUGE                   BG1A, {2, 3}, {$19,$18,$10,$10,$10,$10,$10,$10,$10,$1a,$00}  ; {gauge_left}{gauge_full}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_right}
+.define BUSHIDO_TITLE                   BG1A, {3, 1}, {$63,$bd,$75,$83,$71,$b9,$00}  ; ひっさつけん
+
+; ------------------------------------------------------------------------------
+
+; item menu text strings
+.define ITEM_TITLE                      BG3A, {2, 2}, {$8a,$8c,$84,$a0,$00}  ; アイテム
+.define ITEM_OPTION_USE                 BG3A, {10, 2}, {$83,$6b,$89,$00}  ; つかう
+.define ITEM_OPTION_ARRANGE             BG3A, {16, 2}, {$7b,$8d,$87,$b9,$00}  ; せいとん
+.define ITEM_OPTION_RARE                BG3A, {23, 2}, {$3f,$8d,$37,$93,$a5,$9b,$00}  ; だいじなもの
+
+.define ITEM_UNKNOWN_ATTACK             BG3B, {29, 23}, {$cb,$cb,$cb,$00}  ; ？？？
+.define ITEM_STRENGTH                   BG3B, {19, 15}, {$81,$6b,$a7,$00}  ; ちから
+.define ITEM_STAMINA                    BG3B, {19, 19}, {$7f,$8d,$a9,$c3,$6f,$00}  ; たいりょく
+.define ITEM_MAG_PWR                    BG3B, {19, 21}, {$9d,$a9,$c3,$6f,$00}  ; まりょく
+.define ITEM_EVADE                      BG3B, {19, 27}, {$6b,$8d,$63,$a9,$83,$00}  ; かいひりつ
+.define ITEM_MAG_EVADE                  BG3B, {19, 31}, {$9d,$69,$89,$6b,$8d,$63,$a9,$83,$00}  ; まほうかいひりつ
+.define ITEM_SPEED                      BG3B, {19, 16}, {$79,$21,$b1,$75,$00}  ; すばやさ
+.define ITEM_ATTACK_PWR                 BG3B, {19, 22}, {$73,$89,$31,$6d,$a9,$c3,$6f,$00}  ; こうげきりょく
+.define ITEM_DEFENSE                    BG3B, {19, 24}, {$29,$89,$2d,$c3,$00}  ; ぼうぎょ
+.define ITEM_MAG_DEF                    BG3B, {19, 28}, {$9d,$69,$89,$29,$89,$2d,$c3,$00}  ; まほうぼうぎょ
+.define ITEM_ELEMENT_HALF               BG3A, {2, 12}, {$61,$b9,$31,$b9,$00}  ; はんげん
+.define ITEM_ELEMENT_ABSORB             BG3A, {16, 12}, {$6d,$c1,$89,$77,$c1,$89,$00}  ; きゅうしゅう
+.define ITEM_ELEMENT_NULL               BG3A, {2, 16}, {$a1,$73,$89,$00}  ; むこう
+.define ITEM_ELEMENT_WEAK               BG3A, {16, 16}, {$37,$bf,$6f,$85,$b9,$00}  ; じゃくてん
+.define ITEM_ATTACK_ELEMENT             BG3A, {2, 12}, {$73,$89,$31,$6d,$00}  ; こうげき
+
+.define ITEM_STAT_SEP(yy)               BG3B, {27, yy}, {$c7,$00}  ; …
+.define ITEM_USAGE_MSG                  {$bb,$ff,$7d,$89,$23,$45,$6d,$ab,$6c,$be,$a6,$6e,$7e,$c5,$00}  ; を　そうびできるキャラクター
+
+.define ITEM_BUSHIDO                    BG3B, {19, 7}, {$63,$bd,$75,$83,$71,$b9,$ff,$2e,$2a,$00}  ; ひっさつけん　グガ
+.define ITEM_RUNIC                      BG3B, {19, 9}, {$9d,$65,$89,$71,$b9,$ff,$ff,$2e,$2a,$00}  ; まふうけん　　グガ
+.define ITEM_2HAND                      BG3B, {19, 11}, {$a9,$c3,$89,$85,$a5,$81,$ff,$2e,$2a,$00}  ; りょうてもち　グガ
+.define ITEM_OWNED                      BG3A, {2, 6}, {$a5,$bd,$85,$8d,$ab,$6b,$39,$00}  ; もっているかず
+.define ITEM_BLANK_QTY                  BG3A, {27, 9}, {$ff,$ff,$ff,$00}  ; 　　　
+
+.define EVADE_MODIFIER_0                {$ff,$ff,$53,$00}  ;   0
+.define EVADE_MODIFIER_PLUS_10          {$d3,$54,$53,$00}  ; +10
+.define EVADE_MODIFIER_PLUS_20          {$d3,$55,$53,$00}  ; +20
+.define EVADE_MODIFIER_PLUS_30          {$d3,$56,$53,$00}  ; +30
+.define EVADE_MODIFIER_PLUS_40          {$d3,$57,$53,$00}  ; +40
+.define EVADE_MODIFIER_PLUS_50          {$d3,$58,$53,$00}  ; +50
+.define EVADE_MODIFIER_MINUS_10         {$c5,$54,$53,$00}  ; -10
+.define EVADE_MODIFIER_MINUS_20         {$c5,$55,$53,$00}  ; -20
+.define EVADE_MODIFIER_MINUS_30         {$c5,$56,$53,$00}  ; -30
+.define EVADE_MODIFIER_MINUS_40         {$c5,$57,$53,$00}  ; -40
+.define EVADE_MODIFIER_MINUS_50         {$c5,$58,$53,$00}  ; -50
+
+.define STAT_MODIFIER_0                 {$ff,$53}  ;  0
+.define STAT_MODIFIER_PLUS_1            {$d3,$54}  ; +1
+.define STAT_MODIFIER_PLUS_2            {$d3,$55}  ; +2
+.define STAT_MODIFIER_PLUS_3            {$d3,$56}  ; +3
+.define STAT_MODIFIER_PLUS_4            {$d3,$57}  ; +4
+.define STAT_MODIFIER_PLUS_5            {$d3,$58}  ; +5
+.define STAT_MODIFIER_PLUS_6            {$d3,$59}  ; +6
+.define STAT_MODIFIER_PLUS_7            {$d3,$5a}  ; +7
+.define STAT_MODIFIER_MINUS_1           {$c5,$54}  ; -1
+.define STAT_MODIFIER_MINUS_2           {$c5,$55}  ; -2
+.define STAT_MODIFIER_MINUS_3           {$c5,$56}  ; -3
+.define STAT_MODIFIER_MINUS_4           {$c5,$57}  ; -4
+.define STAT_MODIFIER_MINUS_5           {$c5,$58}  ; -5
+.define STAT_MODIFIER_MINUS_6           {$c5,$59}  ; -6
+.define STAT_MODIFIER_MINUS_7           {$c5,$5a}  ; -7
+
+; ------------------------------------------------------------------------------
+
+; equipment menu text strings
+.define EQUIP_RHAND                     BG3A, {2, 6}, {$9f,$2d,$85,$00}  ; みぎて
+.define EQUIP_LHAND                     BG3A, {2, 8}, {$63,$3f,$a9,$85,$00}  ; ひだりて
+.define EQUIP_HEAD                      BG3A, {2, 10}, {$8b,$7f,$9d,$00}  ; あたま
+.define EQUIP_BODY                      BG3A, {2, 12}, {$6b,$a7,$3f,$00}  ; からだ
+.define EQUIP_RELIC1                    BG3A, {2, 10}, {$8a,$6e,$7a,$74,$a8,$00}  ; アクセサリ
+.define EQUIP_RELIC2                    BG3A, {2, 12}, {$8a,$6e,$7a,$74,$a8,$00}  ; アクセサリ
+.define EQUIP_BLANK_OPTIONS             BG3A, {4, 2}, {$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$00}  ; 　　　　　　　　　　　　　　　　　　　　　　　　　　
+.define EQUIP_TITLE_EQUIP               BG3A, {26, 2}, {$7d,$89,$23,$00}  ; そうび
+.define EQUIP_TITLE_REMOVE              BG3A, {26, 2}, {$61,$39,$79,$00}  ; はずす
+.define EQUIP_OPTION_EQUIP              BG3A, {4, 2}, {$7d,$89,$23,$00}  ; そうび
+.define EQUIP_OPTION_OPTIMUM            BG3A, {9, 2}, {$75,$8d,$6d,$c3,$89,$00}  ; さいきょう
+.define EQUIP_OPTION_REMOVE             BG3A, {16, 2}, {$61,$39,$79,$00}  ; はずす
+.define EQUIP_OPTION_EMPTY              BG3A, {22, 2}, {$79,$27,$85,$61,$39,$79,$ff,$00}  ; すべてはずす　
+.define RELIC_OPTION_EQUIP              BG3A, {4, 2}, {$7d,$89,$23,$00}  ; そうび
+.define RELIC_OPTION_REMOVE             BG3A, {9, 2}, {$61,$39,$79,$00}  ; はずす
+
+.define EQUIP_STRENGTH                  BG3A, {15, 17}, {$81,$6b,$a7,$00}  ; ちから
+.define EQUIP_SPEED                     BG3A, {15, 18}, {$79,$21,$b1,$75,$00}  ; すばやさ
+.define EQUIP_STAMINA                   BG3A, {15, 21}, {$7f,$8d,$a9,$c3,$6f,$00}  ; たいりょく
+.define EQUIP_MAG_PWR                   BG3A, {15, 23}, {$9d,$a9,$c3,$6f,$00}  ; まりょく
+.define EQUIP_ATTACK_PWR                BG3A, {15, 24}, {$73,$89,$31,$6d,$a9,$c3,$6f,$00}  ; こうげきりょく
+.define EQUIP_DEFENSE                   BG3A, {15, 26}, {$29,$89,$2d,$c3,$00}  ; ぼうぎょ
+.define EQUIP_EVADE                     BG3A, {15, 29}, {$6b,$8d,$63,$a9,$83,$00}  ; かいひりつ
+.define EQUIP_MAG_DEF                   BG3A, {15, 30}, {$9d,$69,$89,$29,$89,$2d,$c3,$00}  ; まほうぼうぎょ
+.define EQUIP_MAG_EVADE                 BG3A, {15, 33}, {$9d,$69,$89,$6b,$8d,$63,$a9,$83,$00}  ; まほうかいひりつ
+.define EQUIP_ARROW(yy)                 BG3A, {26, yy}, {$d5,$00}  ; {rightarrow}
+
+.define EQUIP_WEAPON_FLAG_1             BG3A, {21, 6}, {$ff,$ff,$ff,$ff,$ff,$ff,$00}  ; 　　　　　　
+.define EQUIP_WEAPON_FLAG_2             BG3A, {21, 8}, {$ff,$ff,$ff,$ff,$ff,$ff,$00}  ; 　　　　　　
+.define EQUIP_WEAPON_FLAG_3             BG3A, {19, 8}, {$37,$c1,$89,$7d,$89,$23,$00}  ; じゅうそうび
+.define EQUIP_WEAPON_FLAG_4             BG3A, {19, 6}, {$95,$87,$89,$a9,$c1,$89,$00}  ; にとうりゅう
+.define EQUIP_WEAPON_FLAG_5             BG3A, {19, 8}, {$a9,$c3,$89,$85,$a5,$81,$00}  ; りょうてもち
+
+.define EQUIP_EMPTY_MSG                 BG3A, {12, 2}, {$d0,$79,$27,$85,$61,$39,$79,$d1,$00}  ; 「すべてはずす」
+.define EQUIP_OPTIMUM_MSG               BG3A, {12, 2}, {$d0,$75,$8d,$6d,$c3,$89,$7d,$89,$23,$d1,$00}  ; 「さいきょうそうび」
+.define RELIC_EMPTY_MSG                 BG3A, {12, 4}, {$d0,$79,$27,$85,$61,$39,$79,$d1,$00}  ; 「すべてはずす」
+.define RELIC_OPTIMUM_MSG               BG3A, {12, 4}, {$d0,$75,$8d,$6d,$c3,$89,$7d,$89,$23,$d1,$00}  ; 「さいきょうそうび」
+.define EQUIP_CHANGED_MSG               BG3A, {3, 6}, {$7d,$89,$23,$95,$6b,$6b,$b7,$ab,$8a,$6e,$7a,$74,$a8,$c5,$2b,$ff,$67,$b9,$73,$89,$75,$ad,$9d,$77,$7f,$00}  ; そうびにかかわるアクセサリーが　へんこうされました
+
+; item slot names for party equip menu
+.define PARTY_EQUIP_SLOT1_RHAND         BG1A, {3, 4}, {$9f,$2d,$00}  ; みぎ
+.define PARTY_EQUIP_SLOT1_LHAND         BG1A, {17, 4}, {$63,$3f,$a9,$00}  ; ひだり
+.define PARTY_EQUIP_SLOT1_HEAD          BG1A, {3, 6}, {$8b,$7f,$9d,$00}  ; あたま
+.define PARTY_EQUIP_SLOT1_BODY          BG1A, {17, 6}, {$6b,$a7,$3f,$00}  ; からだ
+.define PARTY_EQUIP_SLOT1_RELIC1        BG1A, {3, 8}, {$8a,$6e,$54,$00}  ; アク１
+.define PARTY_EQUIP_SLOT1_RELIC2        BG1A, {17, 8}, {$8a,$6e,$55,$00}  ; アク２
+
+.define PARTY_EQUIP_SLOT2_RHAND         BG1A, {3, 12}, {$9f,$2d,$00}  ; みぎ
+.define PARTY_EQUIP_SLOT2_LHAND         BG1A, {17, 12}, {$63,$3f,$a9,$00}  ; ひだり
+.define PARTY_EQUIP_SLOT2_HEAD          BG1A, {3, 14}, {$8b,$7f,$9d,$00}  ; あたま
+.define PARTY_EQUIP_SLOT2_BODY          BG1A, {17, 14}, {$6b,$a7,$3f,$00}  ; からだ
+.define PARTY_EQUIP_SLOT2_RELIC1        BG1A, {3, 16}, {$8a,$6e,$54,$00}  ; アク１
+.define PARTY_EQUIP_SLOT2_RELIC2        BG1A, {17, 16}, {$8a,$6e,$55,$00}  ; アク２
+
+.define PARTY_EQUIP_SLOT3_RHAND         BG1A, {3, 20}, {$9f,$2d,$00}  ; みぎ
+.define PARTY_EQUIP_SLOT3_LHAND         BG1A, {17, 20}, {$63,$3f,$a9,$00}  ; ひだり
+.define PARTY_EQUIP_SLOT3_HEAD          BG1A, {3, 22}, {$8b,$7f,$9d,$00}  ; あたま
+.define PARTY_EQUIP_SLOT3_BODY          BG1A, {17, 22}, {$6b,$a7,$3f,$00}  ; からだ
+.define PARTY_EQUIP_SLOT3_RELIC1        BG1A, {3, 24}, {$8a,$6e,$54,$00}  ; アク１
+.define PARTY_EQUIP_SLOT3_RELIC2        BG1A, {17, 24}, {$8a,$6e,$55,$00}  ; アク２
+
+.define PARTY_EQUIP_SLOT4_RHAND         BG1A, {3, 28}, {$9f,$2d,$00}  ; みぎ
+.define PARTY_EQUIP_SLOT4_LHAND         BG1A, {17, 28}, {$63,$3f,$a9,$00}  ; ひだり
+.define PARTY_EQUIP_SLOT4_HEAD          BG1A, {3, 30}, {$8b,$7f,$9d,$00}  ; あたま
+.define PARTY_EQUIP_SLOT4_BODY          BG1A, {17, 30}, {$6b,$a7,$3f,$00}  ; からだ
+.define PARTY_EQUIP_SLOT4_RELIC1        BG1A, {3, 32}, {$8a,$6e,$54,$00}  ; アク１
+.define PARTY_EQUIP_SLOT4_RELIC2        BG1A, {17, 32}, {$8a,$6e,$55,$00}  ; アク２
+
+; ------------------------------------------------------------------------------
+
+; party menu text strings
+.define PARTY_LEVEL                     BG1A, {18, 8}, {$2b,$35,$00}  ; LV
+.define PARTY_HP                        BG1A, {18, 10}, {$27,$2f,$00}  ; HP
+.define PARTY_MP                        BG1A, {18, 12}, {$2c,$2f,$00}  ; MP
+.define PARTY_HP_SLASH                  BG1A, {25, 10}, {$ce,$00}  ; /
+.define PARTY_MP_SLASH                  BG1A, {25, 12}, {$ce,$00}  ; /
+
+.define PARTY_MSG                       BG1A, {10, 2}, {$49,$c5,$84,$c6,$c5,$bb,$ff,$83,$ff,$83,$6f,$bd,$85,$6f,$3f,$75,$8d,$00}  ; パーティーを　つ　つくってください
+.define PARTY_TITLE                     BG1A, {3, 2}, {$67,$b9,$7b,$8d,$00}  ; へんせい
+.define PARTY_ERROR_MSG1                BG1A, {10, 2}, {$49,$c5,$84,$c6,$c5,$9b,$6b,$39,$2b,$ff,$83,$8b,$a9,$9d,$7b,$b9,$c9,$00}  ; パーティーのかずが　つありません！
+.define PARTY_ERROR_MSG2                BG1A, {10, 2}, {$3f,$ad,$a5,$8d,$9d,$7b,$b9,$c9,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$00}  ; だれもいません！　　　　　　　　　
+
+; ------------------------------------------------------------------------------
+
+; status menu text strings
+.define STATUS_TITLE                    BG3A, {2, 2}, {$78,$84,$c5,$7e,$78,$00}  ; ステータス
+.define STATUS_HP_SLASH                 BG1A, {17, 8}, {$ce,$00}  ; ／
+.define STATUS_MP_SLASH                 BG1A, {17, 9}, {$ce,$00}  ; ／
+.define STATUS_EVADE_PERCENT            BG3A, {29, 28}, {$cd,$00}  ; ％
+.define STATUS_MAG_EVADE_PERCENT        BG3C, {29, 0}, {$cd,$00}  ; ％
+.define STATUS_LEVEL                    BG1A, {10, 7}, {$2b,$35,$00}  ; LV
+.define STATUS_HP                       BG1A, {10, 8}, {$27,$2f,$00}  ; HP
+.define STATUS_MP                       BG1A, {10, 9}, {$2c,$2f,$00}  ; MP
+.define STATUS_STRENGTH                 BG3A, {4, 26}, {$81,$6b,$a7,$00}  ; ちから
+.define STATUS_STAMINA                  BG3A, {4, 30}, {$7f,$8d,$a9,$c3,$6f,$00}  ; たいりょく
+.define STATUS_MAG_PWR                  BG3C, {4, 0}, {$9d,$a9,$c3,$6f,$00}  ; まりょく
+.define STATUS_EVADE                    BG3A, {16, 28}, {$6b,$8d,$63,$a9,$83,$00}  ; かいひりつ
+.define STATUS_MAG_EVADE                BG3C, {16, 0}, {$9d,$69,$89,$6b,$8d,$63,$a9,$83,$ff,$c7,$00}  ; まほうかいひりつ　＿
+.define STATUS_STRENGTH_SEP             BG3A, {10, 26}, {$c7,$00}  ; ＿
+.define STATUS_SPEED_SEP                BG3A, {10, 28}, {$c7,$00}  ; ＿
+.define STATUS_STAMINA_SEP              BG3A, {10, 30}, {$c7,$00}  ; ＿
+.define STATUS_MAG_PWR_SEP              BG3C, {10, 0}, {$c7,$00}  ; ＿
+.define STATUS_DEFENSE_SEP              BG3A, {25, 26}, {$c7,$00}  ; ＿
+.define STATUS_EVADE_SEP                BG3A, {25, 28}, {$c7,$00}  ; ＿
+.define STATUS_SPEED                    BG3A, {4, 27}, {$79,$21,$b1,$75,$00}  ; すばやさ
+.define STATUS_ATTACK_PWR               BG3A, {16, 23}, {$73,$89,$31,$6d,$a9,$c3,$6f,$ff,$ff,$c7,$00}  ; こうげきりょく　　＿
+.define STATUS_DEFENSE                  BG3A, {16, 25}, {$29,$89,$2d,$c3,$00}  ; ぼうぎょ
+.define STATUS_MAG_DEF                  BG3A, {16, 29}, {$9d,$69,$89,$29,$89,$2d,$c3,$ff,$ff,$c7,$00}  ; まほうぼうぎょ　　＿
+.define STATUS_YOUR_EXP                 BG3A, {4, 15}, {$31,$b9,$35,$8d,$9b,$71,$8d,$71,$b9,$81,$00}  ; げんざいのけいけんち
+.define STATUS_LEVEL_UP_EXP             BG3A, {4, 19}, {$83,$2d,$9b,$ac,$26,$aa,$9d,$45,$ff,$8b,$87,$00}  ; つぎのレベルまで　あと
+
+; ------------------------------------------------------------------------------
+
+; shop menu text strings
+.define SHOP_TYPE_1                     BG3A, {3, 2}, {$25,$6d,$b1,$00}  ; ぶきや
+.define SHOP_TYPE_2                     BG3A, {3, 2}, {$29,$89,$2f,$b1,$00}  ; ぼうぐや
+.define SHOP_TYPE_3                     BG3A, {3, 2}, {$47,$89,$2f,$b1,$00}  ; どうぐや
+.define SHOP_TYPE_4                     BG3A, {2, 2}, {$8a,$6e,$7a,$74,$a8,$c5,$b1,$00}  ; アクセサリーや
+.define SHOP_TYPE_5                     BG3A, {2, 2}, {$2d,$c3,$89,$77,$c3,$89,$00}  ; ぎょうしょう
+.define SHOP_OPTIONS                    BG3A, {3, 6}, {$6b,$89,$ff,$ff,$89,$ab,$ff,$ff,$45,$ab,$00}  ; かう　　うる　　でる
+.define SHOP_GIL_1                      BG3A, {28, 6}, {$2c,$aa,$00}  ; ギル
+.define SHOP_GIL_2                      BG3A, {17, 10}, {$2c,$aa,$00}  ; ギル
+.define SHOP_OWNED                      BG3A, {21, 8}, {$a5,$bd,$85,$8d,$ab,$6b,$39,$00}  ; もっているかず
+.define SHOP_EQUIPPED                   BG3A, {21, 12}, {$7d,$89,$23,$77,$85,$8d,$ab,$6b,$39,$00}  ; そうびしているかず
+.define SHOP_POWER                      BG3A, {6, 12}, {$73,$89,$31,$6d,$a9,$c3,$6f,$ff,$c7,$00}  ; こうげきりょく　＿
+.define SHOP_DEFENSE                    BG3A, {6, 12}, {$29,$89,$2d,$c3,$00}  ; ぼうぎょ
+.define SHOP_DOTS                       BG3A, {14, 13}, {$c7,$00}  ; ＿
+.define SHOP_GREETING_MSG               BG3A, {11, 2}, {$d0,$8d,$a7,$bd,$77,$bf,$8d,$c9,$47,$b9,$93,$33,$b5,$89,$71,$b9,$45,$cb,$d1,$00}  ; 「いらっしゃい！どんなごようけんで？」
+.define SHOP_BUY_MSG                    BG3A, {11, 2}, {$d0,$93,$95,$2b,$ff,$69,$77,$8d,$b9,$3f,$8d,$bd,$c9,$cb,$d1,$ff,$ff,$ff,$ff,$00}  ; 「なにが　ほしいんだいっ！？」　　　　
+.define SHOP_BUY_QTY_MSG                BG3A, {11, 2}, {$d0,$8d,$6f,$83,$ff,$69,$77,$8d,$b9,$3f,$8d,$bd,$c9,$cb,$d1,$00}  ; 「いくつ　ほしいんだいっ！？」
+.define SHOP_SELL_MSG                   BG3A, {11, 2}, {$d0,$93,$95,$bb,$ff,$89,$a9,$7f,$8d,$b9,$3f,$8d,$cb,$d1,$ff,$ff,$ff,$ff,$ff,$00}  ; 「なにを　うりたいんだい？」　　　　　
+.define SHOP_SELL_QTY_MSG               BG3A, {11, 2}, {$d0,$8d,$6f,$83,$ff,$89,$a9,$7f,$8d,$b9,$3f,$8d,$cb,$d1,$00}  ; 「いくつ　うりたいんだい？」
+.define SHOP_BYE_MSG                    BG3A, {11, 2}, {$d0,$9d,$8d,$47,$ff,$47,$c5,$a5,$c9,$d1,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$00}  ; 「まいど　どーも！」　　　　　　　　　
+.define SHOP_NOT_ENOUGH_GIL_MSG         BG3A, {11, 2}, {$d0,$c7,$c7,$91,$6b,$99,$2b,$ff,$7f,$a9,$93,$8d,$b5,$89,$3f,$99,$d1,$00}  ; 「＿＿おかねが　たりないようだね」
+.define SHOP_TOO_MANY_MSG               BG3A, {11, 2}, {$d0,$a5,$89,$ff,$a5,$85,$93,$8d,$b5,$d1,$ff,$ff,$ff,$ff,$ff,$00}  ; 「もう　もてないよ」　　　　　
+.define SHOP_ONLY_ONE_MSG               BG3A, {11, 2}, {$d0,$54,$83,$8b,$ad,$21,$ff,$37,$c1,$89,$25,$b9,$3f,$b5,$d1,$00}  ; 「１つあれば　じゅうぶんだよ」
+
+; ------------------------------------------------------------------------------
+
+; config menu text strings
+.define CONFIG_COLOR_ARROW_BLANK        BG1B, {22, 18}, {$ff,$ff,$ff,$ff,$ff,$ff,$ff,$00}  ; 　　　　　　　
+.define CONFIG_COLOR_ARROW(xx)          BG1B, {xx, 18}, {$d4,$00}  ; {uparrow}
+
+.define CONFIG_CONTROLLER               BG1A, {3, 21}, {$72,$b8,$86,$ae,$c5,$a6,$c5,$00}  ; コントローラー
+.define CONFIG_WAIT                     BG1A, {22, 5}, {$88,$ca,$8c,$86,$00}  ; ウェイト
+.define CONFIG_FAST                     BG1A, {14, 8}, {$61,$b1,$8d,$00}  ; はやい
+.define CONFIG_SLOW                     BG1A, {22, 8}, {$91,$7d,$8d,$00}  ; おそい
+.define CONFIG_CMD_SHORT                BG1A, {22, 11}, {$7f,$b9,$77,$c1,$6f,$00}  ; たんしゅく
+.define CONFIG_GAUGE_ON                 BG1A, {14, 13}, {$90,$b8,$00}  ; オン
+.define CONFIG_GAUGE_OFF                BG1A, {22, 13}, {$90,$64,$00}  ; オフ
+.define CONFIG_STEREO                   BG1A, {14, 15}, {$78,$84,$ac,$90,$00}  ; ステレオ
+.define CONFIG_MONO                     BG1A, {22, 15}, {$a4,$9a,$a6,$aa,$00}  ; モノラル
+.define CONFIG_MEMORY                   BG1A, {22, 17}, {$6d,$91,$6f,$00}  ; きおく
+.define CONFIG_OPTIMUM                  BG1A, {14, 19}, {$75,$8d,$6d,$c3,$89,$00}  ; さいきょう
+.define CONFIG_CTRL_NORMAL              BG1A, {14, 21}, {$9a,$c5,$9c,$aa,$00}  ; ノーマル
+.define CONFIG_CTRL_CUSTOM              BG1A, {22, 21}, {$6a,$78,$7e,$a0,$00}  ; カスタム
+.define CONFIG_CTRL_MULTI               BG1A, {22, 23}, {$9c,$aa,$80,$00}  ; マルチ
+.define CONFIG_BATTLE_SPEED_NUM         BG1A, {14, 7}, {$54,$ff,$55,$ff,$56,$ff,$57,$ff,$58,$ff,$59,$00}  ; １　２　３　４　５　６
+.define CONFIG_MSG_SPEED_NUM            BG1A, {14, 9}, {$54,$ff,$55,$ff,$56,$ff,$57,$ff,$58,$ff,$59,$00}  ; １　２　３　４　５　６
+.define CONFIG_CURSOR                   BG1A, {3, 17}, {$6a,$c5,$7c,$aa,$8d,$81,$00}  ; カーソルいち
+
+.define CONFIG_TITLE                    BG3A, {25, 1}, {$72,$b8,$64,$c6,$2e,$00}  ; コンフィグ
+.define CONFIG_BATTLE_MODE              BG1A, {3, 4}, {$20,$86,$aa,$a4,$c5,$46,$00}  ; バトルモード
+.define CONFIG_BATTLE_SPEED             BG1A, {5, 6}, {$78,$4b,$c5,$46,$00}  ; スピード
+.define CONFIG_MSG_SPEED                BG1A, {5, 8}, {$a2,$bc,$7a,$c5,$36,$00}  ; メッセージ
+.define CONFIG_CMD_SET                  BG1A, {5, 10}, {$72,$9c,$b8,$46,$77,$85,$8d,$00}  ; コマンドしてい
+.define CONFIG_GAUGE                    BG1A, {5, 12}, {$30,$c5,$36,$00}  ; ゲージ
+.define CONFIG_SOUND                    BG1A, {3, 14}, {$74,$88,$b8,$46,$00}  ; サウンド
+.define CONFIG_REEQUIP                  BG1A, {3, 18}, {$75,$8d,$7d,$89,$23,$00}  ; さいそうび
+.define CONFIG_ACTIVE                   BG1A, {14, 4}, {$8a,$6e,$84,$c6,$48,$00}  ; アクティヴ
+.define CONFIG_CMD_WINDOW               BG1A, {14, 10}, {$88,$c6,$b8,$46,$88,$00}  ; ウィンドウ
+.define CONFIG_RESET                    BG1A, {14, 16}, {$a5,$47,$79,$00}  ; もどす
+.define CONFIG_EMPTY                    BG1A, {22, 18}, {$79,$27,$85,$61,$39,$79,$00}  ; すべてはずす
+.define CONFIG_CTRL_SINGLE              BG1A, {14, 22}, {$76,$b8,$2e,$aa,$00}  ; シングル
+
+.define CONFIG_MAGIC_ORDER              BG1B, {3, 4}, {$9d,$69,$89,$9b,$93,$a7,$23,$6b,$7f,$00}  ; まほうのならびかた
+.define CONFIG_WINDOW_LABEL             BG1B, {3, 12}, {$88,$c6,$b8,$46,$88,$00}  ; ウィンドウ
+.define CONFIG_COLOR                    BG1B, {3, 14}, {$6a,$a6,$c5,$00}  ; カラー
+.define CONFIG_MAGIC_ORDER_A            BG1B, {14, 7}, {$54,$c7,$00}  ; １＿
+.define CONFIG_MAGIC_ORDER_B            BG1B, {14, 9}, {$55,$c7,$00}  ; ２＿
+.define CONFIG_MAGIC_ORDER_C            BG1B, {14, 11}, {$56,$c7,$00}  ; ３＿
+.define CONFIG_COLOR_BAR_R              BG1B, {18, 19}, {$19,$10,$10,$10,$10,$10,$10,$10,$10,$1a,$00}  ; {gauge_left}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_right}
+.define CONFIG_COLOR_BAR_G              BG1B, {18, 21}, {$19,$10,$10,$10,$10,$10,$10,$10,$10,$1a,$00}  ; {gauge_left}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_right}
+.define CONFIG_COLOR_BAR_B              BG1B, {18, 23}, {$19,$10,$10,$10,$10,$10,$10,$10,$10,$1a,$00}  ; {gauge_left}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_empty}{gauge_right}
+.define CONFIG_COLOR_R                  BG1B, {14, 19}, {$31,$00}  ; R
+.define CONFIG_COLOR_G                  BG1B, {14, 21}, {$26,$00}  ; G
+.define CONFIG_COLOR_B                  BG1B, {14, 23}, {$21,$00}  ; B
+.define CONFIG_WINDOW_NUM               BG1B, {14, 13}, {$54,$ff,$55,$ff,$56,$ff,$57,$ff,$58,$ff,$59,$ff,$5a,$ff,$5b,$00}  ; １　２　３　４　５　６　７　８
+.define CONFIG_MAGIC_ORDER_NUM          BG1B, {14, 5}, {$54,$ff,$55,$ff,$56,$ff,$57,$ff,$58,$ff,$59,$00}  ; １　２　３　４　５　６
+.define CONFIG_FONT                     BG1B, {14, 15}, {$64,$cc,$b8,$86,$00}  ; フォント
+.define CONFIG_WINDOW                   BG1B, {22, 14}, {$88,$c6,$b8,$46,$88,$00}  ; ウィンドウ
+
+.define CONFIG_RETURN                   BG1B, {25, 14}, {$a5,$47,$79,$00}  ; もどす
+.define CONFIG_COLOR_BOX                BG1B, {22, 17}, {$01,$02,$03,$04,$05,$06,$07,$00}  ; {1}{2}{3}{4}{5}{6}{7}
+.define CONFIG_MAGIC_TYPE_1             {$6b,$8d,$65,$6f}  ; かいふく
+.define CONFIG_MAGIC_TYPE_2             {$73,$89,$31,$6d}  ; こうげき
+.define CONFIG_MAGIC_TYPE_3             {$6b,$b9,$7b,$83}  ; かんせつ
+
+.define CMD_ARRANGE_TITLE               BG3A, {3, 1}, {$7b,$8d,$87,$b9,$00}  ; せいとん
+
+.define CHAR_CTRL_TITLE                 BG3A, {2, 12}, {$72,$b8,$86,$ae,$c5,$a6,$c5,$9b,$b7,$a9,$65,$a9,$00}  ; コントローラーのわりふり
+.define CHAR_1_CTRL_1                   BG3A, {12, 15}, {$72,$b8,$86,$ae,$c5,$a6,$c5,$54,$00}  ; コントローラー１
+.define CHAR_1_CTRL_2                   BG3A, {21, 15}, {$72,$b8,$86,$ae,$c5,$a6,$c5,$55,$00}  ; コントローラー２
+.define CHAR_2_CTRL_1                   BG3A, {12, 17}, {$72,$b8,$86,$ae,$c5,$a6,$c5,$54,$00}  ; コントローラー１
+.define CHAR_2_CTRL_2                   BG3A, {21, 17}, {$72,$b8,$86,$ae,$c5,$a6,$c5,$55,$00}  ; コントローラー２
+.define CHAR_3_CTRL_1                   BG3A, {12, 19}, {$72,$b8,$86,$ae,$c5,$a6,$c5,$54,$00}  ; コントローラー１
+.define CHAR_3_CTRL_2                   BG3A, {21, 19}, {$72,$b8,$86,$ae,$c5,$a6,$c5,$55,$00}  ; コントローラー２
+.define CHAR_4_CTRL_1                   BG3A, {12, 21}, {$72,$b8,$86,$ae,$c5,$a6,$c5,$54,$00}  ; コントローラー１
+.define CHAR_4_CTRL_2                   BG3A, {21, 21}, {$72,$b8,$86,$ae,$c5,$a6,$c5,$55,$00}  ; コントローラー２
+
+.define CTRL_CONFIG_TITLE               BG3A, {22, 2}, {$28,$7e,$b8,$9b,$7b,$bd,$85,$8d,$00}  ; ボタンのせってい
+
+.define CTRL_CONFIG_CONFIRM_1           BG3A, {2, 6}, {$71,$bd,$85,$8d,$00}  ; けってい
+.define CTRL_CONFIG_CANCEL_1            BG3A, {7, 6}, {$81,$c1,$89,$77,$00}  ; ちゅうし
+.define CTRL_CONFIG_MENU_1              BG3A, {12, 6}, {$a2,$94,$c0,$c5,$00}  ; メニュー
+.define CTRL_CONFIG_PARTY_1             BG3A, {16, 6}, {$49,$c5,$84,$c6,$c5,$00}  ; パーティー
+.define CTRL_CONFIG_ROW_1               BG3A, {21, 6}, {$80,$ca,$b8,$36,$00}  ; チェンジ
+.define CTRL_CONFIG_DEF_1               BG3A, {26, 6}, {$29,$89,$2d,$c3,$00}  ; ぼうぎょ
+
+.define CTRL_CONFIG_CONFIRM_2           BG3A, {2, 10}, {$71,$bd,$85,$8d,$00}  ; けってい
+.define CTRL_CONFIG_CANCEL_2            BG3A, {7, 10}, {$81,$c1,$89,$77,$00}  ; ちゅうし
+.define CTRL_CONFIG_MENU_2              BG3A, {12, 10}, {$a2,$94,$c0,$c5,$00}  ; メニュー
+.define CTRL_CONFIG_PARTY_2             BG3A, {16, 10}, {$49,$c5,$84,$c6,$c5,$00}  ; パーティー
+.define CTRL_CONFIG_ROW_2               BG3A, {21, 10}, {$80,$ca,$b8,$36,$00}  ; チェンジ
+.define CTRL_CONFIG_DEF_2               BG3A, {26, 10}, {$29,$89,$2d,$c3,$00}  ; ぼうぎょ
+
+.define CTRL_CONFIG_CONFIRM_3           BG3A, {2, 14}, {$71,$bd,$85,$8d,$00}  ; けってい
+.define CTRL_CONFIG_CANCEL_3            BG3A, {7, 14}, {$81,$c1,$89,$77,$00}  ; ちゅうし
+.define CTRL_CONFIG_MENU_3              BG3A, {12, 14}, {$a2,$94,$c0,$c5,$00}  ; メニュー
+.define CTRL_CONFIG_PARTY_3             BG3A, {16, 14}, {$49,$c5,$84,$c6,$c5,$00}  ; パーティー
+.define CTRL_CONFIG_ROW_3               BG3A, {21, 14}, {$80,$ca,$b8,$36,$00}  ; チェンジ
+.define CTRL_CONFIG_DEF_3               BG3A, {26, 14}, {$29,$89,$2d,$c3,$00}  ; ぼうぎょ
+
+.define CTRL_CONFIG_CONFIRM_4           BG3A, {2, 18}, {$71,$bd,$85,$8d,$00}  ; けってい
+.define CTRL_CONFIG_CANCEL_4            BG3A, {7, 18}, {$81,$c1,$89,$77,$00}  ; ちゅうし
+.define CTRL_CONFIG_MENU_4              BG3A, {12, 18}, {$a2,$94,$c0,$c5,$00}  ; メニュー
+.define CTRL_CONFIG_PARTY_4             BG3A, {16, 18}, {$49,$c5,$84,$c6,$c5,$00}  ; パーティー
+.define CTRL_CONFIG_ROW_4               BG3A, {21, 18}, {$80,$ca,$b8,$36,$00}  ; チェンジ
+.define CTRL_CONFIG_DEF_4               BG3A, {26, 18}, {$29,$89,$2d,$c3,$00}  ; ぼうぎょ
+
+.define CTRL_CONFIG_CONFIRM_5           BG3A, {2, 22}, {$71,$bd,$85,$8d,$00}  ; けってい
+.define CTRL_CONFIG_CANCEL_5            BG3A, {7, 22}, {$81,$c1,$89,$77,$00}  ; ちゅうし
+.define CTRL_CONFIG_MENU_5              BG3A, {12, 22}, {$a2,$94,$c0,$c5,$00}  ; メニュー
+.define CTRL_CONFIG_PARTY_5             BG3A, {16, 22}, {$49,$c5,$84,$c6,$c5,$00}  ; パーティー
+.define CTRL_CONFIG_ROW_5               BG3A, {21, 22}, {$80,$ca,$b8,$36,$00}  ; チェンジ
+.define CTRL_CONFIG_DEF_5               BG3A, {26, 22}, {$29,$89,$2d,$c3,$00}  ; ぼうぎょ
+
+.define CTRL_CONFIG_CONFIRM_6           BG3A, {2, 26}, {$71,$bd,$85,$8d,$00}  ; けってい
+.define CTRL_CONFIG_CANCEL_6            BG3A, {7, 26}, {$81,$c1,$89,$77,$00}  ; ちゅうし
+.define CTRL_CONFIG_MENU_6              BG3A, {12, 26}, {$a2,$94,$c0,$c5,$00}  ; メニュー
+.define CTRL_CONFIG_PARTY_6             BG3A, {16, 26}, {$49,$c5,$84,$c6,$c5,$00}  ; パーティー
+.define CTRL_CONFIG_ROW_6               BG3A, {21, 26}, {$80,$ca,$b8,$36,$00}  ; チェンジ
+.define CTRL_CONFIG_DEF_6               BG3A, {26, 26}, {$29,$89,$2d,$c3,$00}  ; ぼうぎょ
+
+.define CTRL_CONFIG_CONFIRM_7           BG3A, {2, 30}, {$71,$bd,$85,$8d,$00}  ; けってい
+.define CTRL_CONFIG_CANCEL_7            BG3A, {7, 30}, {$81,$c1,$89,$77,$00}  ; ちゅうし
+.define CTRL_CONFIG_MENU_7              BG3A, {12, 30}, {$a2,$94,$c0,$c5,$00}  ; メニュー
+.define CTRL_CONFIG_PARTY_7             BG3A, {16, 30}, {$49,$c5,$84,$c6,$c5,$00}  ; パーティー
+.define CTRL_CONFIG_ROW_7               BG3A, {21, 30}, {$80,$ca,$b8,$36,$00}  ; チェンジ
+.define CTRL_CONFIG_DEF_7               BG3A, {26, 30}, {$29,$89,$2d,$c3,$00}  ; ぼうぎょ
+
+.define CTRL_CONFIG_BUTTON_1            BG3A, {5, 4}, {$28,$7e,$b8,$00}  ; ボタン
+.define CTRL_CONFIG_BUTTON_2            BG3A, {5, 8}, {$28,$7e,$b8,$00}  ; ボタン
+.define CTRL_CONFIG_BUTTON_3            BG3A, {5, 12}, {$28,$7e,$b8,$00}  ; ボタン
+.define CTRL_CONFIG_BUTTON_4            BG3A, {5, 16}, {$28,$7e,$b8,$00}  ; ボタン
+.define CTRL_CONFIG_BUTTON_5            BG3A, {5, 20}, {$28,$7e,$b8,$00}  ; ボタン
+.define CTRL_CONFIG_BUTTON_6            BG3A, {5, 24}, {$28,$7e,$b8,$00}  ; ボタン
+.define CTRL_CONFIG_BUTTON_7            BG3A, {7, 28}, {$28,$7e,$b8,$00}  ; ボタン
+
+.define CTRL_CONFIG_A                   BG3A, {4, 5}, {$20,$00}  ; バ
+.define CTRL_CONFIG_B                   BG3A, {4, 9}, {$21,$00}  ; ば
+.define CTRL_CONFIG_X                   BG3A, {4, 13}, {$37,$00}  ; じ
+.define CTRL_CONFIG_Y                   BG3A, {4, 17}, {$38,$00}  ; ズ
+.define CTRL_CONFIG_L                   BG3A, {4, 21}, {$2b,$00}  ; が
+.define CTRL_CONFIG_R                   BG3A, {4, 25}, {$31,$00}  ; げ
+.define CTRL_CONFIG_SELECT              BG3A, {4, 29}, {$32,$24,$2b,$00}  ; ゴブが
+
+; ------------------------------------------------------------------------------
+
+; save menu text strings
+.define SAVE_SLOT_1_EMPTY               BG3A, {3, 8}, {$24,$2c,$2f,$33,$38,$00}  ; EMPTY
+.define SAVE_SLOT_2_EMPTY               BG3A, {3, 15}, {$24,$2c,$2f,$33,$38,$00}  ; EMPTY
+.define SAVE_SLOT_3_EMPTY               BG3A, {3, 22}, {$24,$2c,$2f,$33,$38,$00}  ; EMPTY
+.define SAVE_SLOT_1_TIME                BG3A, {3, 10}, {$33,$28,$2c,$24,$00}  ; TIME
+.define SAVE_SLOT_2_TIME                BG3A, {3, 17}, {$33,$28,$2c,$24,$00}  ; TIME
+.define SAVE_SLOT_3_TIME                BG3A, {3, 24}, {$33,$28,$2c,$24,$00}  ; TIME
+.define SAVE_SLOT_1_TIME_COLON          BG3A, {4, 11}, {$cf,$00}  ; :
+.define SAVE_SLOT_2_TIME_COLON          BG3A, {4, 18}, {$cf,$00}  ; :
+.define SAVE_SLOT_3_TIME_COLON          BG3A, {4, 25}, {$cf,$00}  ; :
+.define SAVE_SLOT_1_LEVEL               BG3A, {25, 8}, {$2b,$35,$00}  ; LV
+.define SAVE_SLOT_2_LEVEL               BG3A, {25, 15}, {$2b,$35,$00}  ; LV
+.define SAVE_SLOT_3_LEVEL               BG3A, {25, 22}, {$2b,$35,$00}  ; LV
+.define SAVE_SLOT_1_HP_SLASH            BG3A, {25, 10}, {$ce,$00}  ; /
+.define SAVE_SLOT_2_HP_SLASH            BG3A, {25, 17}, {$ce,$00}  ; /
+.define SAVE_SLOT_3_HP_SLASH            BG3A, {25, 24}, {$ce,$00}  ; /
+
+.define SAVE_TITLE                      BG3A, {14, 3}, {$7a,$c5,$24,$00}  ; セーブ
+.define NEW_GAME_TITLE                  BG3A, {13, 3}, {$94,$c0,$c5,$30,$c5,$a0,$00}  ; ニューゲーム
+
+; ------------------------------------------------------------------------------
+
+; element symbols
+.define ELEMENT_SYMBOLS                 {$1e,$24,$1e,$c3,$1f,$1b,$1e,$d6,$1d,$fe,$1e,$e4,$1c,$b0,$1e,$85,$00}  ; 水地聖風毒雷氷炎
+
+; ------------------------------------------------------------------------------
+
+; name change menu text strings
+.define NAME_CHANGE_LETTERS_1           {$8b,$8d,$89,$8f,$91,$35,$37,$39,$3b,$3d}  ; あいうえおざじずぜぞ
+.define NAME_CHANGE_LETTERS_2           {$6b,$6d,$6f,$71,$73,$3f,$41,$43,$45,$47}  ; かきくけこだぢづでど
+.define NAME_CHANGE_LETTERS_3           {$75,$77,$79,$7b,$7d,$21,$23,$25,$27,$29}  ; さしすせそばびぶべぼ
+.define NAME_CHANGE_LETTERS_4           {$7f,$81,$83,$85,$87,$4a,$4c,$4e,$50,$52}  ; たちつてとぱぴぷぺぽ
+.define NAME_CHANGE_LETTERS_5           {$93,$95,$97,$99,$9b,$bd,$bf,$c1,$c3,$bb}  ; なにぬねのっゃゅょを
+.define NAME_CHANGE_LETTERS_6           {$61,$63,$65,$67,$69,$c4,$c6,$c8,$ca,$cc}  ; はひふへほァィゥェォ
+.define NAME_CHANGE_LETTERS_7           {$9d,$9f,$a1,$a3,$a5,$c5,$48,$c9,$cb,$c7}  ; まみむめもーヴ！？＿
+.define NAME_CHANGE_LETTERS_8           {$b1,$b3,$b5,$b7,$b9,$53,$54,$55,$56,$57}  ; やゆよわん０１２３４
+.define NAME_CHANGE_LETTERS_9           {$a7,$a9,$ab,$ad,$af,$58,$59,$5a,$5b,$5c}  ; らりるれろ５６７８９
+.define NAME_CHANGE_LETTERS_10          {$2b,$2d,$2f,$31,$33,$ce,$d0,$d1,$cf,$d3}  ; がぎぐげご／「」：＋
+.define NAME_CHANGE_LETTERS_11          {$8a,$8c,$88,$8e,$90,$34,$36,$38,$3a,$3c}  ; アイウエオザジズゼゾ
+.define NAME_CHANGE_LETTERS_12          {$6a,$6c,$6e,$70,$72,$3e,$40,$42,$44,$46}  ; カキクケコダヂヅデド
+.define NAME_CHANGE_LETTERS_13          {$74,$76,$78,$7a,$7c,$20,$22,$24,$26,$28}  ; サシスセソバビブベボ
+.define NAME_CHANGE_LETTERS_14          {$7e,$80,$82,$84,$86,$49,$4b,$4d,$4f,$51}  ; タチツテトパピプペポ
+.define NAME_CHANGE_LETTERS_15          {$92,$94,$96,$98,$9a,$bc,$be,$c0,$c2,$ba}  ; ナニヌネノッャュョヲ
+.define NAME_CHANGE_LETTERS_16          {$60,$62,$64,$66,$68,$c4,$c6,$c8,$ca,$cc}  ; ハヒフヘホァィゥェォ
+.define NAME_CHANGE_LETTERS_17          {$9c,$9e,$a0,$a2,$a4,$c5,$48,$c9,$cb,$c7}  ; マミムメモーヴ！？＿
+.define NAME_CHANGE_LETTERS_18          {$b0,$b2,$b4,$b6,$b8,$53,$54,$55,$56,$57}  ; ヤユヨワン０１２３４
+.define NAME_CHANGE_LETTERS_19          {$a6,$a8,$aa,$ac,$ae,$58,$59,$5a,$5b,$5c}  ; ラリルレロ５６７８９
+.define NAME_CHANGE_LETTERS_20          {$2a,$2c,$2e,$30,$32,$ce,$d0,$d1,$cf,$d3}  ; ガギグゲゴ／「」：＋
+
+; ------------------------------------------------------------------------------
+
+; final order menu text strings
+.define FINAL_ORDER_END                 BG1A, {4, 30}, {$91,$b7,$a9,$00}  ; おわり
+.define FINAL_ORDER_RESET               BG1A, {4, 4}, {$b1,$a9,$93,$91,$77,$00}  ; やりなおし
+.define FINAL_ORDER_MSG                 BG1A, {10, 2}, {$37,$c1,$b9,$21,$b9,$bb,$ff,$6d,$a3,$85,$6f,$3f,$75,$8d,$00}  ; じゅんばんを　きめてください
+
+; ------------------------------------------------------------------------------
+
+.endif
