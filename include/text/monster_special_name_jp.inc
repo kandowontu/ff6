@@ -10,8 +10,6 @@ MONSTER_SPECIAL_NAME_INC = 1
 ; ###          AUTOMATICALLY GENERATED CODE, DO NOT MODIFY MANUALLY          ###
 ; ##############################################################################
 
-        ARRAY_LENGTH = 384
-        ITEM_SIZE = 8
 
 ; ##############################################################################
 
